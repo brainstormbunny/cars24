@@ -21,9 +21,9 @@ import os
 # cur = ctx.cursor()
 # home_directory = 'C:/Users/Cars24/Desktop/Notebook/'
 # gsheet_auth = f'{home_directory}sahil_creds.json'
+# gsheet_auth='sahilapi@sahil-374614.iam.gserviceaccount.com'
 
 gsheet_auth=os.environ.get('SAHIL_SA')
-gsheet_auth='sahilapi@sahil-374614.iam.gserviceaccount.com'
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(gsheet_auth, scope)
 gc = gspread.authorize(credentials)
@@ -294,9 +294,11 @@ gc = gspread.authorize(credentials)
 
 # df2 = pd.DataFrame(rows, columns=[desc[0] for desc in cur.description])
 
-ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1CUWKMUGl5ninrWOzKGob1y3h3lxiC_EgGCw2N9qVsZw/edit#gid=0').worksheet('Driver_QC')
-gd.set_with_dataframe(ws,df2,resize=True,row=1,col=1)  #write
-# dff=pd.DataFrame(ws.get_all_records())  
+# ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1CUWKMUGl5ninrWOzKGob1y3h3lxiC_EgGCw2N9qVsZw/edit#gid=0').worksheet('Driver_QC')
+# gd.set_with_dataframe(ws,df2,resize=True,row=1,col=1)  #write
+# # dff=pd.DataFrame(ws.get_all_records())  
+
+
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1hUMmmrQIXDy2GR9TxfYjYdYLu9jpzTRSq52Hl24sitc/edit#gid=1892535976').worksheet('Sahil')
 # gd.set_with_dataframe(ws1,df2,resize=True,row=1,col=1)  #write
 fr=pd.DataFrame(ws.get_all_records())  
