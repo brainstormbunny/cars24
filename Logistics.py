@@ -21,9 +21,9 @@ import os
 # cur = ctx.cursor()
 # home_directory = 'C:/Users/Cars24/Desktop/Notebook/'
 # gsheet_auth = f'{home_directory}sahil_creds.json'
-# gsheet_auth='sahilapi@sahil-374614.iam.gserviceaccount.com'
+gsheet_auth='sahilapi@sahil-374614.iam.gserviceaccount.com'
 
-gsheet_auth=os.environ.get('SAHIL_SA')
+# gsheet_auth=os.environ.get('SAHIL_SA')
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(gsheet_auth, scope)
 gc = gspread.authorize(credentials)
