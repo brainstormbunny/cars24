@@ -9,7 +9,6 @@ import os
 
 # email = 'sahil.5@cars24.com'
 # WAREHOUSE = 'BI_WH'
-
 # # Connect to Snowflake
 # ctx = snowflake.connector.connect(
 #     user=email,
@@ -19,9 +18,9 @@ import os
 # )
 
 # cur = ctx.cursor()
-# home_directory = 'C:/Users/Cars24/Desktop/Notebook/'
-# gsheet_auth = f'{home_directory}sahil_creds.json'
-gsheet_auth='sahilapi@sahil-374614.iam.gserviceaccount.com'
+# home_directory = 'C:\Users\Cars24\Desktop\cars24\sahil_creds.json'
+gsheet_auth = 'sahil_creds.json'
+
 
 # gsheet_auth=os.environ.get('SAHIL_SA')
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
