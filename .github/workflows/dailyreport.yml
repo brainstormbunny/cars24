@@ -22,5 +22,5 @@ jobs:
 
       - name: Run email code
         env:
-          USER_EMAIL: ${{secrets.SAHIL_SA }}
+          gsheet_auth: ${{secrets.SAHIL_SA }}
         run: python Logistics.py
