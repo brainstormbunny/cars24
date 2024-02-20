@@ -195,7 +195,6 @@ WHERE OPI.STATUS = 3 AND OBI.STATUS = 3 AND UPPER(PAYMENT_HEADING) IN ('DELIVERY
 WHERE rank = 1)PM ON to_char(PM.LEAD_ID) = to_char(ORDERS.LEAD_ID)
 LEFT JOIN PC_STITCH_DB.FIVETRAN1_BI.SALES_TRANSACTIONS S ON S.APPT_ID = ORDERS.LEAD_ID
 
-
 WHERE 
 --TO_DATE(OLA.CREATED_AT) >= to_date(cast(convert_timezone('Asia/Kolkata',current_timestamp())as TIMESTAMP_NTZ))-95 AND 
 ORDERS.STATUS_ID <> 12 
@@ -216,14 +215,10 @@ CASE WHEN IS_PROJECT_LOST_LEAD = 1 THEN 1 ELSE 0 END AS IS_PLL_CASE
 from PC_STITCH_DB.ADMIN_PANEL_PROD_DEALERENGINE_PROD.ORDERS
 LEFT JOIN PC_STITCH_DB.ADMIN_PANEL_PROD_DEALERENGINE_PROD.ORDER_PURCHASE_REQUEST OPR2 ON OPR2.FK_ORDER_ID = ORDERS.ORDER_ID AND OPR2.STATUS = 3)PLL
 ON T4.LEAD_ID = PLL.LEAD_ID)FT)
-
-
-        """
-        
+        """        
 cur.execute(query)
 rows = cur.fetchall()
 df = pd.DataFrame(rows, columns=[desc[0] for desc in cur.description])
-
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1CUWKMUGl5ninrWOzKGob1y3h3lxiC_EgGCw2N9qVsZw/edit#gid=0').worksheet('Raw Data')
 gd.set_with_dataframe(ws,df,resize=False,row=1,col=1)  #write
 # dff=pd.DataFrame(ws.get_all_records())  
@@ -297,7 +292,6 @@ df2 = pd.DataFrame(rows, columns=[desc[0] for desc in cur.description])
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1CUWKMUGl5ninrWOzKGob1y3h3lxiC_EgGCw2N9qVsZw/edit#gid=0').worksheet('Driver_QC')
 gd.set_with_dataframe(ws,df2,resize=True,row=1,col=1)  #write
 # dff=pd.DataFrame(ws.get_all_records())  
-
 
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1hUMmmrQIXDy2GR9TxfYjYdYLu9jpzTRSq52Hl24sitc/edit#gid=1892535976').worksheet('Sahil')
 # gd.set_with_dataframe(ws1,df2,resize=True,row=1,col=1)  #write
