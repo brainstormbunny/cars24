@@ -8,17 +8,22 @@ import os
 
 import snowflake.connector
 
+import snowflake.connector
+
 email = 'sahil.5@cars24.com'
 WAREHOUSE = 'BI_WH'
+
 # Connect to Snowflake
 ctx = snowflake.connector.connect(
     user=email,
     warehouse=WAREHOUSE,
     account='am62076.ap-southeast-2',
-    authenticator="externalbrowser"  # Assuming you're using external browser authentication
+    authenticator="externalbrowser",  # Use external browser authentication
+    private_key_path='key.pub',  # Path to your private key
 )
 
 cur = ctx.cursor()
+
 # home_directory = 'C:\Users\Cars24\Desktop\cars24\sahil_creds.json'
 gsheet_auth = 'sahil_creds.json'
 
