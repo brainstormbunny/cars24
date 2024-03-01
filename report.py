@@ -217,7 +217,7 @@ if __name__ == "__main__":
     html_to_png(html_file_path, png_file_path)
 
 
-# slack_token='xoxb-5133929532-6595912076437-GitLkdpn3aednq7M2HbofhiB'
+
 slack_token = secret_key
 client = WebClient(token=slack_token)
 
