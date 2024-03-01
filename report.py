@@ -23,7 +23,6 @@ print(yesterday_date)
 print(today_date)
 
 
-secret_key=os.environ['secret_key']
 import datetime
 today = datetime.datetime.now()
 today_date=today.strftime('%Y-%m-%d')
@@ -217,6 +216,8 @@ if __name__ == "__main__":
     html_to_png(html_file_path, png_file_path)
 
 
+sys.exit()
+secret_key=os.environ['secret_key']
 
 slack_token = secret_key
 client = WebClient(token=slack_token)
