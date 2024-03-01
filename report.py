@@ -85,6 +85,7 @@ data1[yesterday_7]=data1[yesterday_7].replace(np.nan, 0)
 
 
 data1['Pending RCA']=data1['Pending RCA'].astype(int)
+print(data1)
 
 def highlight_score(val):
     color = None
