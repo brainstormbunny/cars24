@@ -2,7 +2,7 @@ name: Python Script
 
 on:
   schedule:
-    - cron: '59 4 * * *'
+    - cron: '30 4 * * *'
   workflow_dispatch:
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
       - name: Python Script
         env:
           secret_key: ${{secrets.TOKEN}}
-        run: python report.py
+        run: python all_report.py
 
 
 
