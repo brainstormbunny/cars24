@@ -10,3 +10,4 @@ slack-sdk
 webclient-helper
 selenium
 selenium-chrome
+Jinja2 
