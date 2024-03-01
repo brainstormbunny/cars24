@@ -5,10 +5,8 @@ from oauth2client.service_account import ServiceAccountCredentials
 import warnings
 warnings.filterwarnings("ignore")
 import os
-
 import snowflake.connector
 
-import snowflake.connector
 
 email = 'sahil.5@cars24.com'
 WAREHOUSE = 'BI_WH'
