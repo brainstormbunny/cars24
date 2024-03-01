@@ -216,7 +216,6 @@ if __name__ == "__main__":
     html_to_png(html_file_path, png_file_path)
 
 
-sys.exit()
 secret_key=os.environ['secret_key']
 
 slack_token = secret_key
