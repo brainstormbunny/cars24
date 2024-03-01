@@ -208,7 +208,7 @@ secret_key=os.environ['secret_key']
 slack_token = secret_key
 client = WebClient(token=slack_token)
 
-channel = 'C06HP83G1GC' 
+channel = 'C06LUMTTLRL' 
 image_path=png_file_path
 try:
     response = client.files_upload(
@@ -385,7 +385,7 @@ if __name__ == "__main__":
 secret_key=os.environ['secret_key']
 
 
-channel = 'C06HP83G1GC' 
+channel = 'C06LUMTTLRL' 
 image_path=png_file_path
 try:
     response = client.files_upload(
@@ -555,7 +555,7 @@ if __name__ == "__main__":
 secret_key=os.environ['secret_key']
 client = WebClient(token=slack_token)
 
-channel = 'C06HP83G1GC' 
+channel = 'C06LUMTTLRL' 
 image_path=png_file_path
 try:
     response = client.files_upload(
@@ -729,7 +729,7 @@ secret_key=os.environ['secret_key']
 client = WebClient(token=slack_token)
 
 
-channel = 'C06HP83G1GC' 
+channel = 'C06LUMTTLRL' 
 image_path=png_file_path
 try:
     response = client.files_upload(
@@ -904,7 +904,7 @@ secret_key=os.environ['secret_key']
 
 client = WebClient(token=slack_token)
 
-channel = 'C06HP83G1GC' 
+channel = 'C06LUMTTLRL' 
 image_path=png_file_path
 try:
     response = client.files_upload(

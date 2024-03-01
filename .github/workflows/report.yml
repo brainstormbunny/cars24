@@ -24,7 +24,7 @@ jobs:
 
       - name: Python Script
         env:
-          secret_key: ${{secrets.TOKEN}}
+          secret_key: ${{secrets.TOKEN1}}
         run: python all_report.py
 
 
