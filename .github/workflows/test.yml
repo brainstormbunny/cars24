@@ -26,7 +26,7 @@ jobs:
       - name: Python Script
         env:
           secret_key: ${{secrets.TOKEN1}}
-        run: python cars24/test/test.py
+        run: python test/test.py
 
 
 
