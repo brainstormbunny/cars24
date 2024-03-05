@@ -18,7 +18,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r cars24/test/requirements1.txt
+          pip install -r test/requirements1.txt
+          
           
 
 
