@@ -52,12 +52,10 @@ report=df[['REQUESTED_PICKUP_TIME','APPOINTMENTID','REGISTRATION_NUMBER','MAKE',
 kochi=report[report['TO_CITY']=='Kochi']
 print(kochi)
 
+html_table3 = kochi.to_html(escape=False, index=False)
 
-html_table = kochi.to_html(index=False)
 
-
-# HTML template
-html_template = """
+html_template = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,25 +63,25 @@ html_template = """
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
+        body {{
             width: fit-content;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             align-content: center;
-        }
+        }}
 
-        table, th, td {
+        table, th, td {{
             border: 1px solid rgb(5, 9, 30);
             border-collapse: collapse;
             text-align: center;
             text-indent: 5px;
-        }
+        }}
 
-        td {
+        td {{
             max-height: fit-content;
             max-width: fit-content;
-        }
+        }}
 
-        #firstdiv {
+        #firstdiv {{
             border-top: 2px solid rgb(76, 104, 65);
             border-left: 2px solid rgb(76, 104, 65);
             border-right: 2px solid rgb(76, 104, 65);
@@ -91,43 +89,40 @@ html_template = """
             background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
             padding-bottom: 2px;
             color: white;
-        }
+        }}
 
-        h3 {
-            font-size: 30px;
+        h3 {{
+            font-size: 35px;
             margin-top: 10px;
-        }
+        }}
 
-        h4 {
+        h4 {{
             background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
             text-align: left;
             padding-left: 10px;
             color: #ffffff;
             background-color: rgb(5, 9, 30);
             border: 2px solid rgb(5, 9, 30);
-        }
+        }}
 
-        th {
+        th {{
             background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
             color: #ffffff;
-        }
+        }}
     </style>
 </head>
 <body style="display: inline-flexbox; align-content: center;">
     <div id="firstdiv" style="text-align: center; background-color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: auto;">
-        <h3>PTS Pendency Report </h3>
+        <h3>PTS Pendency Report</h3>
     </div>
     <div class="city" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: inline-flexbox; align-content: center;">
-        <h4>PTS Pendency Report-Kochi :</h4>
-        {table_content}
+        <h4>PTS Pendency Report-Kochi:</h4>
+        {html_table3}
     </div>
    
 </body>
 </html>
 """
-
-# Replace {table_content} with the HTML table
-html_text = html_template.replace('{table_content}',html_table  )
 
 html_file_path = 'test_report.html'
 
@@ -186,11 +181,10 @@ except SlackApiError as e:
 gj = report[report['TO_CITY'].isin(['Hyderabad', 'Rajkot', 'Ahmedabad', 'Surat', 'Vadodara'])]
 print(gj)
 
+html_table2 = gj.to_html(escape=False, index=False)
 
-html_table1 = gj.to_html(index=False)
 
-# HTML template
-html_template = """
+html_template = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -198,25 +192,25 @@ html_template = """
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
+        body {{
             width: fit-content;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             align-content: center;
-        }
+        }}
 
-        table, th, td {
+        table, th, td {{
             border: 1px solid rgb(5, 9, 30);
             border-collapse: collapse;
             text-align: center;
             text-indent: 5px;
-        }
+        }}
 
-        td {
+        td {{
             max-height: fit-content;
             max-width: fit-content;
-        }
+        }}
 
-        #firstdiv {
+        #firstdiv {{
             border-top: 2px solid rgb(76, 104, 65);
             border-left: 2px solid rgb(76, 104, 65);
             border-right: 2px solid rgb(76, 104, 65);
@@ -224,45 +218,40 @@ html_template = """
             background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
             padding-bottom: 2px;
             color: white;
-        }
+        }}
 
-        h3 {
-            font-size: 30px;
+        h3 {{
+            font-size: 35px;
             margin-top: 10px;
-        }
+        }}
 
-        h4 {
+        h4 {{
             background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
             text-align: left;
             padding-left: 10px;
             color: #ffffff;
             background-color: rgb(5, 9, 30);
             border: 2px solid rgb(5, 9, 30);
-        }
+        }}
 
-        th {
+        th {{
             background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
             color: #ffffff;
-        }
+        }}
     </style>
 </head>
 <body style="display: inline-flexbox; align-content: center;">
     <div id="firstdiv" style="text-align: center; background-color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: auto;">
-        <h3>PTS Pendency Report </h3>
+        <h3>PTS Pendency Report</h3>
     </div>
     <div class="city" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: inline-flexbox; align-content: center;">
-        <h4>PTS Pendency Report-(Hyderabad,Rajkot,Ahmedabad,Vadodara,Surat) :</h4>
-        {table_content}
+        <h4>PTS Pendency Report-Kochi:</h4>
+        {html_table2}
     </div>
    
 </body>
 </html>
 """
-
-# Replace {table_content} with the HTML table
-html_text1 = html_template.replace('{table_content}',html_table1  )
-
-
 
 html_file_path = 'test_report.html'
 
@@ -271,7 +260,6 @@ with open(html_file_path, 'w') as file:
     file.write(html_template)
 
 print(f"HTML file saved successfully at: {html_file_path}")
-
 def html_to_png(html_file, output_file):
     # Configure headless Chrome
     options = Options()
