@@ -22,8 +22,6 @@ yesterday = today - datetime.timedelta(days=3)
 yesterday_date=yesterday.strftime('%Y-%m-%d')
 yesterday_date1=yesterday.strftime('%d-%B-%Y')
 
-print(yesterday_date)
-print(today_date)
 
 
 import datetime
@@ -62,6 +60,10 @@ data1.columns = data1.iloc[0]
 data1 = data1.drop(data1.index[0]).reset_index(drop=True)
 data1=data1.replace(np.nan,'')
 
+print(yesterday_date)
+print(today_date)
+
+
 data1['% Performance'] = pd.to_numeric(data1['% Performance'].str.rstrip('%'), errors='coerce')
 data1['% Performance'] = data1['% Performance'].replace(np.nan, 0)
 data1[yesterday_date] = pd.to_numeric(data1[yesterday_date].str.rstrip('%'), errors='coerce')
@@ -79,7 +81,6 @@ data1[yesterday_5]=data1[yesterday_5].replace(np.nan, 0)
 data1[yesterday_6]=data1[yesterday_6].replace(np.nan, 0)
 data1[yesterday_7]=data1[yesterday_7].replace(np.nan, 0)
 data1['Pending RCA']=data1['Pending RCA'].astype(int)
-
 def highlight_score(val):
     color = None
     if val < 90 and val >= 1:
