@@ -170,6 +170,18 @@ billing_data=pd.concat([bd,data],ignore_index=True)
 
 ws6=gc.open_by_url('https://docs.google.com/spreadsheets/d/1NtK-88ydwNFP9F4Lznf-VPcwInXOhLuGG7y2AKMOOBA/edit#gid=1392538818').worksheet('Concat_data')
 gd.set_with_dataframe(ws6,billing_data,resize=True,row=1,col=1)  #write
+#PTL Backup
+ws121=gc.open_by_url('https://docs.google.com/spreadsheets/d/1NtK-88ydwNFP9F4Lznf-VPcwInXOhLuGG7y2AKMOOBA/edit#gid=2107925430').worksheet('Raw Data')
+# gd.set_with_dataframe(ws121,master_data,resize=False,row=1,col=1)
+ptl_data=pd.DataFrame(ws121.get_all_records()) 
+
+ws1212=gc.open_by_url('https://docs.google.com/spreadsheets/d/1pT6CDU0cNoaO0cukmG8ZQOWw9N14sQLEFVHDuz8fjBA/edit#gid=0').worksheet('PTL_Raw_data')
+gd.set_with_dataframe(ws1212,ptl_data,resize=True,row=1,col=1)
+
+
+
+
+
 
 data_final11=data_final1[['LEAD_ID','REGISTRATION_NUMBER','MAKE','MODEL','PARKING_CITY','LATEST_PARKING_YARD','SALE_CONFIRMED_DATE','PICKUP_REGION_NAME','LANE_CONCAT','FLAG']]
 html_data=data_final11.to_html(classes='center', index=False, escape=False, justify='center')
