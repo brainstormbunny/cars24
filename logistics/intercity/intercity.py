@@ -167,6 +167,9 @@ data['SALE_CONFIRMED_DATE'] = data['SALE_CONFIRMED_DATE'].fillna(today)
 data['Mapping_Date'] = pd.to_datetime(data['Mapping_Date'], format='%Y-%m-%d').dt.strftime('%d-%m-%Y')
 data=data[['LEAD_ID','REGISTRATION_NUMBER','MAKE','MODEL','PARKING_CITY','LATEST_PARKING_YARD','SALE_CONFIRMED_DATE','In_Transit_date','PICKUP_REGION_NAME','Stockin','Mapping_Date','LANE_CONCAT']]
 billing_data=pd.concat([bd,data],ignore_index=True)
+billing_data['LANE_CONCAT']=billing_data['LANE_CONCAT'].replace('Bangalore','BENGALURU')
+if (billing_data['C2B/GS'] == 'GS').any():
+    billing_data.loc[billing_data['C2B/GS'] == 'GS', 'LANE_CONCAT'] = billing_data.loc[billing_data['C2B/GS'] == 'GS', 'LANE_CONCAT'].str.replace('Bangalore', 'Bengaluru')
 
 ws6=gc.open_by_url('https://docs.google.com/spreadsheets/d/1NtK-88ydwNFP9F4Lznf-VPcwInXOhLuGG7y2AKMOOBA/edit#gid=1392538818').worksheet('Concat_data')
 gd.set_with_dataframe(ws6,billing_data,resize=True,row=1,col=1)  #write
@@ -184,7 +187,6 @@ html_data = html_data.replace('<table', '<table style="text-align:center;"')
 
 
 email_id=['vishal.singh@aigc.co.in','abhishek.shukla@cars24.com','rupesh@aigc.co.in','varunkaushik@trfvlsl.com','chandra.shekhar@aigc.co.in','anilsharma@trfvlsl.com','gaurav.singh@aigc.co.in','shiv.yadav@cars24.com','operations.mum@cars24.com','operations.tru@cars24.com','operations.bho@cars24.com','operations.pun@cars24.com','operations.ncr@cars24.com','operations.cbe@cars24.com','operations.che@cars24.com','operations.up@cars24.com','operations.mad@cars24.com','operations.sal@cars24.com','trichy.operations@cars24.com','operations.hyd@cars24.com','operations.cdh@cars24.com',	'operations.ldh@cars24.com','ops.direct.punj@cars24.com','operations.ind@cars24.com','ops.direct.guj@cars24.com','operations.mhr@cars24.com','opeartions.mhr@cars24.com','ops.direct.mah@cars24.com']
-
 html = 'Hi Vishal<br> <br> Please find below today Request <br><br>' +html_data +'<br> <br> Regards<br> Sahil '
 subject="Interstate Transfer Request AIGC -" +today_date
 create_message_without_attachment(email_id,subject,html)
