@@ -168,6 +168,8 @@ data['Mapping_Date'] = pd.to_datetime(data['Mapping_Date'], format='%Y-%m-%d').d
 data=data[['LEAD_ID','REGISTRATION_NUMBER','MAKE','MODEL','PARKING_CITY','LATEST_PARKING_YARD','SALE_CONFIRMED_DATE','In_Transit_date','PICKUP_REGION_NAME','Stockin','Mapping_Date','LANE_CONCAT']]
 billing_data=pd.concat([bd,data],ignore_index=True)
 billing_data['LANE_CONCAT']=billing_data['LANE_CONCAT'].replace('Bangalore','BENGALURU')
+billing_data.columns = billing_data.columns.astype(str).str.strip()
+
 if (billing_data['C2B/GS'] == 'GS').any():
     billing_data.loc[billing_data['C2B/GS'] == 'GS', 'LANE_CONCAT'] = billing_data.loc[billing_data['C2B/GS'] == 'GS', 'LANE_CONCAT'].str.replace('Bangalore', 'Bengaluru')
 
