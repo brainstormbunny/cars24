@@ -149,12 +149,12 @@ gd.set_with_dataframe(ws12,master_data,resize=False,row=1,col=1)
 ws12=gc.open_by_url('https://docs.google.com/spreadsheets/d/1pT6CDU0cNoaO0cukmG8ZQOWw9N14sQLEFVHDuz8fjBA/edit#gid=0').worksheet('Master_data1')
 gd.set_with_dataframe(ws12,master_data,resize=False,row=1,col=1)
 
-
 ws5=gc.open_by_url('https://docs.google.com/spreadsheets/d/1NtK-88ydwNFP9F4Lznf-VPcwInXOhLuGG7y2AKMOOBA/edit#gid=1392538818').worksheet('Concat_data')
 # gd.set_with_dataframe(ws,data_final1,resize=True,row=1,col=1)  #write
 bd=pd.DataFrame(ws5.get_all_records()) 
 bd.columns = bd.columns.astype(str).str.strip()
 
+bd['C2B/GS']=''
 
 ws5=gc.open_by_url('https://docs.google.com/spreadsheets/d/17ZEHIYeo9lKWvRP2-vKQ6UdeoY9Nnxwz8K9UhcPLNqI/edit#gid=1179011715').worksheet('Pendency')
 # gd.set_with_dataframe(ws,data_final1,resize=True,row=1,col=1)  #write
@@ -165,14 +165,13 @@ data['Mapping_Date']=today_date
 data['SALE_CONFIRMED_DATE'] = data['SALE_CONFIRMED_DATE'].replace('',np.nan)
 data['SALE_CONFIRMED_DATE'] = data['SALE_CONFIRMED_DATE'].fillna(today)
 data['Mapping_Date'] = pd.to_datetime(data['Mapping_Date'], format='%Y-%m-%d').dt.strftime('%d-%m-%Y')
-data=data[['LEAD_ID','REGISTRATION_NUMBER','MAKE','MODEL','PARKING_CITY','LATEST_PARKING_YARD','SALE_CONFIRMED_DATE','In_Transit_date','PICKUP_REGION_NAME','Stockin','Mapping_Date','LANE_CONCAT']]
+data=data[['LEAD_ID','REGISTRATION_NUMBER','MAKE','MODEL','PARKING_CITY','LATEST_PARKING_YARD','SALE_CONFIRMED_DATE','In_Transit_date','PICKUP_REGION_NAME','Stockin','Mapping_Date','LANE_CONCAT','C2B/GS']]
 billing_data=pd.concat([bd,data],ignore_index=True)
 billing_data['LANE_CONCAT']=billing_data['LANE_CONCAT'].replace('Bangalore','BENGALURU')
 billing_data.columns = billing_data.columns.astype(str).str.strip()
 
 if (billing_data['C2B/GS'] == 'GS').any():
     billing_data.loc[billing_data['C2B/GS'] == 'GS', 'LANE_CONCAT'] = billing_data.loc[billing_data['C2B/GS'] == 'GS', 'LANE_CONCAT'].str.replace('Bangalore', 'Bengaluru')
-
 ws6=gc.open_by_url('https://docs.google.com/spreadsheets/d/1NtK-88ydwNFP9F4Lznf-VPcwInXOhLuGG7y2AKMOOBA/edit#gid=1392538818').worksheet('Concat_data')
 gd.set_with_dataframe(ws6,billing_data,resize=True,row=1,col=1)  #write
 #PTL Backup
