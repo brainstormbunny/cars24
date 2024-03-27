@@ -172,7 +172,7 @@ billing_data.columns = billing_data.columns.astype(str).str.strip()
 
 if (billing_data['C2B/GS'] == 'GS').any():
     billing_data.loc[billing_data['C2B/GS'] == 'GS', 'LANE_CONCAT'] = billing_data.loc[billing_data['C2B/GS'] == 'GS', 'LANE_CONCAT'].str.replace('Bangalore', 'Bengaluru')
-billing_data=billing_data[['LEAD_ID','REGISTRATION_NUMBER','MAKE','MODEL','PARKING_CITY','LATEST_PARKING_YARD','SALE_CONFIRMED_DATE','PICKUP_REGION_NAME','Stockin','Mapping_Date','LANE_CONCAT','C2B/GS']]
+billing_data=billing_data[['LEAD_ID','REGISTRATION_NUMBER','MAKE','MODEL','PARKING_CITY','LATEST_PARKING_YARD','SALE_CONFIRMED_DATE','PICKUP_REGION_NAME','Mapping_Date','LANE_CONCAT','C2B/GS']]
 
 ws6=gc.open_by_url('https://docs.google.com/spreadsheets/d/1NtK-88ydwNFP9F4Lznf-VPcwInXOhLuGG7y2AKMOOBA/edit#gid=1392538818').worksheet('Concat_data')
 gd.set_with_dataframe(ws6,billing_data,resize=False,row=1,col=1)  #write
