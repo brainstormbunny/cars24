@@ -19,7 +19,7 @@ today = datetime.datetime.now()
 today_date=today.strftime('%Y-%m-%d')
 yesterday = today - datetime.timedelta(days=1)
 yesterday_date=yesterday.strftime('%Y-%m-%d')
-yesterday_date1=yesterday.strftime('%d-%B-%Y')
+yesterday_date1=yesterday.strftime('%d-%m-%Y')
 
 import datetime
 today = datetime.datetime.now()
@@ -37,7 +37,7 @@ yesterday_5=yesterday_5.strftime('%d-%b')
 yesterday_6 = today - datetime.timedelta(days=6)
 yesterday_6=yesterday_6.strftime('%d-%b')
 yesterday_7 = today - datetime.timedelta(days=7)
-yesterday7=yesterday_7.strftime('%Y-%m-%d')
+yesterday7=yesterday_7.strftime('%d-%m-%Y')
 
 yesterday_7=yesterday_7.strftime('%d-%b')
 
@@ -217,8 +217,8 @@ try:
         Docoment Issues :{di} ~{dip} \n
         Logistics Issue : {li} ~{lip} \n
         Tech Issue : {ti} ~{tip} \n
-        Other : {oi} ~{oip}\n
-        FYI : @Vishal sikka
+        Other : {oi} ~{oip}
+        
         '''
     )
 
