@@ -8,8 +8,6 @@ import os
 import time
 import datetime
 import warnings
-import sys
-import imgkit
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 from selenium import webdriver
@@ -48,11 +46,6 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name(gsheet_auth, scop
 gc = gspread.authorize(credentials)
 def chunked(iterable, size):
     return [iterable[i:i+size] for i in range(0, len(iterable), size)]
-
-
-
-print(yesterday_date)
-print(today_date)
 
 
 sheet_url = 'https://docs.google.com/spreadsheets/d/1k1N-MlbvjSuqueyaG1ul5mh64JfIjFHBjwWrb93_oU0/edit#gid=849813055'
