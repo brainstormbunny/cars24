@@ -18,14 +18,14 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r logistics/report/requirements1.txt
+          pip install -r logistics/business_report/requirements1.txt
           
 
 
       - name: Python Script
         env:
           secret_key: ${{secrets.TOKEN1}}
-        run: python logistics/report/business_report.py
+        run: python logistics/business_report/business_report.py
 
 
 
