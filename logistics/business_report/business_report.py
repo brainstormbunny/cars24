@@ -43,6 +43,12 @@ yesterday_7=yesterday_7.strftime('%d-%b')
 
 gsheet_auth = 'sahil_creds.json'
 
+channel = ['C06HR7PBTHP','C06HP83G1GC']
+
+
+# channel = ['C05P9MNRC3T','C06LUMTTLRL']
+
+
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(gsheet_auth, scope)
 gc = gspread.authorize(credentials)
@@ -198,7 +204,6 @@ slack_token = secret_key
 
 client = WebClient(token=slack_token)
 
-channel = ['C05P9MNRC3T','C06LUMTTLRL']
 
 for i in channel:
     image_path = png_file_path
@@ -389,7 +394,6 @@ sip=data2.loc[data2['CHD Performance RCA']=='Sales Issue','Overall%'].iloc[0]
 client = WebClient(token=slack_token)
 
 
-channel = ['C05P9MNRC3T','C06LUMTTLRL']
 
 for i in channel:
     image_path = png_file_path1
@@ -578,7 +582,6 @@ op1=data3.loc[data3['eVTF Performance RCA']=='Other','Overall%'].iloc[0]
 client = WebClient(token=slack_token)
 
 
-channel = ['C05P9MNRC3T','C06LUMTTLRL']
 
 for i in channel:
     image_path = png_file_path2
