@@ -43,10 +43,10 @@ yesterday_7=yesterday_7.strftime('%d-%b')
 
 gsheet_auth = 'sahil_creds.json'
 
-channel = ['C06HR7PBTHP','C06HP83G1GC']
+# channel = ['C06HR7PBTHP','C06HP83G1GC']
 
 
-# channel = ['C05P9MNRC3T','C06LUMTTLRL']
+channel = ['C05P9MNRC3T','C06LUMTTLRL']
 
 
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
@@ -205,36 +205,70 @@ slack_token = secret_key
 client = WebClient(token=slack_token)
 
 
-for i in channel:
-    image_path = png_file_path
+# channel = ['C05P9MNRC3T','C06LUMTTLRL']
+channel='C05P9MNRC3T'
+image_path = png_file_path
 
-    try:
-        response = client.files_upload(
-            channels=channel,
-            file=image_path,
-            title=f'''_Logistics_CSP Report_
-            ''',
-            initial_comment=f'''*_Logistics_CSP Report_*\n
-            Last 7 days RCA report:\n
-            Total Breach: {sdb}\n
-            Performance is Impacted :{impacted} \n
-            RCA :\n
-            Business Dependency :{bd} ~{bdp}\n
-            Customer Dependency : {cd} ~{cdp}\n
-            Docoment Issues :{di} ~{dip} \n
-            Logistics Issue : {li} ~{lip} \n
-            Tech Issue : {ti} ~{tip} \n
-            Other : {oi} ~{oip}\n
-            '''
-        )
+try:
+    response = client.files_upload(
+        channels=channel,
+        file=image_path,
+        title=f'''_Logistics_CSP Report_
+        ''',
+        initial_comment=f'''*_Logistics_CSP Report_*\n
+        Last 7 days RCA report:\n
+        Total Breach: {sdb}\n
+        Performance is Impacted :{impacted} \n
+        RCA :\n
+        Business Dependency :{bd} ~{bdp}\n
+        Customer Dependency : {cd} ~{cdp}\n
+        Docoment Issues :{di} ~{dip} \n
+        Logistics Issue : {li} ~{lip} \n
+        Tech Issue : {ti} ~{tip} \n
+        Other : {oi} ~{oip}\n
+        '''
+    )
 
-        if response['ok']:
-            print("Image sent successfully!")
-        else:
-            print("Failed to send image:", response['error'])
+    if response['ok']:
+        print("Image sent successfully!")
+    else:
+        print("Failed to send image:", response['error'])
 
-    except SlackApiError as e:
-        print(f"Error sending image: {e.response['error']}")
+except SlackApiError as e:
+    print(f"Error sending image: {e.response['error']}")
+
+
+channel='C06LUMTTLRL'
+image_path = png_file_path
+
+try:
+    response = client.files_upload(
+        channels=channel,
+        file=image_path,
+        title=f'''_Logistics_CSP Report_
+        ''',
+        initial_comment=f'''*_Logistics_CSP Report_*\n
+        Last 7 days RCA report:\n
+        Total Breach: {sdb}\n
+        Performance is Impacted :{impacted} \n
+        RCA :\n
+        Business Dependency :{bd} ~{bdp}\n
+        Customer Dependency : {cd} ~{cdp}\n
+        Docoment Issues :{di} ~{dip} \n
+        Logistics Issue : {li} ~{lip} \n
+        Tech Issue : {ti} ~{tip} \n
+        Other : {oi} ~{oip}\n
+        '''
+    )
+
+    if response['ok']:
+        print("Image sent successfully!")
+    else:
+        print("Failed to send image:", response['error'])
+
+except SlackApiError as e:
+    print(f"Error sending image: {e.response['error']}")
+
 
 ###########################CHD Report######################################################################
 
@@ -395,36 +429,64 @@ client = WebClient(token=slack_token)
 
 
 
-for i in channel:
-    image_path = png_file_path1
+image_path = png_file_path1
+channel='C05P9MNRC3T'
+try:
+    response = client.files_upload(
+        channels=channel,
+        file=image_path,
+        title=f'''_Logistics_CHD Report_
+        ''',
+        initial_comment=f'''*_Logistics_CHD Report_*\n
+        Last 7 days RCA report:\n
+        Total Breach: {sdb1}\n
+        Performance is Impacted :{impacted1} \n
+        RCA :\n
+        Inspection Issue :{ii} ~{iip}\n
+        Yard Issue  : {yi} ~{yip}\n
+        Logistics Issue :{li1} ~{lip1} \n
+        Dealer Dependency  : {dd} ~{ddp} \n
+        Sale Issue : {si} ~{sip} \n
+        '''
+    )
 
-    try:
-        response = client.files_upload(
-            channels=channel,
-            file=image_path,
-            title=f'''_Logistics_CHD Report_
-            ''',
-            initial_comment=f'''*_Logistics_CHD Report_*\n
-            Last 7 days RCA report:\n
-            Total Breach: {sdb1}\n
-            Performance is Impacted :{impacted1} \n
-            RCA :\n
-            Inspection Issue :{ii} ~{iip}\n
-            Yard Issue  : {yi} ~{yip}\n
-            Logistics Issue :{li1} ~{lip1} \n
-            Dealer Dependency  : {dd} ~{ddp} \n
-            Sale Issue : {si} ~{sip} \n
-            '''
-        )
+    if response['ok']:
+        print("Image sent successfully!")
+    else:
+        print("Failed to send image:", response['error'])
 
-        if response['ok']:
-            print("Image sent successfully!")
-        else:
-            print("Failed to send image:", response['error'])
+except SlackApiError as e:
+    print(f"Error sending image: {e.response['error']}")
 
-    except SlackApiError as e:
-        print(f"Error sending image: {e.response['error']}")
 
+image_path = png_file_path1
+channel='C06LUMTTLRL'
+try:
+    response = client.files_upload(
+        channels=channel,
+        file=image_path,
+        title=f'''_Logistics_CHD Report_
+        ''',
+        initial_comment=f'''*_Logistics_CHD Report_*\n
+        Last 7 days RCA report:\n
+        Total Breach: {sdb1}\n
+        Performance is Impacted :{impacted1} \n
+        RCA :\n
+        Inspection Issue :{ii} ~{iip}\n
+        Yard Issue  : {yi} ~{yip}\n
+        Logistics Issue :{li1} ~{lip1} \n
+        Dealer Dependency  : {dd} ~{ddp} \n
+        Sale Issue : {si} ~{sip} \n
+        '''
+    )
+
+    if response['ok']:
+        print("Image sent successfully!")
+    else:
+        print("Failed to send image:", response['error'])
+
+except SlackApiError as e:
+    print(f"Error sending image: {e.response['error']}")
 
 
 #########################################eVTF###############################################################
@@ -582,33 +644,61 @@ op1=data3.loc[data3['eVTF Performance RCA']=='Other','Overall%'].iloc[0]
 client = WebClient(token=slack_token)
 
 
+channel='C05P9MNRC3T'
+image_path = png_file_path2
 
-for i in channel:
-    image_path = png_file_path2
+try:
+    response = client.files_upload(
+        channels=channel,
+        file=image_path,
+        title=f'''_Logistics_eVTF_Report_
+        ''',
+        initial_comment=f'''*_Logistics_eVTF_Report_*\n
+        Last 7 days RCA report:\n
+        Unverified cases : {sdb2}\n
+        Performance is Impacted :{impacted2} \n
+        RCA :\n
+        Dealer Dependency :{dd1} ~{ddp1}\n
+        Tech Issue  : {tii} ~{ti2p}\n
+        Logistics Issue :{li2} ~{lip2} \n
+        Other  : {o1} ~{op1} \n
+        '''
+    )
 
-    try:
-        response = client.files_upload(
-            channels=channel,
-            file=image_path,
-            title=f'''_Logistics_eVTF_Report_
-            ''',
-            initial_comment=f'''*_Logistics_eVTF_Report_*\n
-            Last 7 days RCA report:\n
-            Unverified cases : {sdb2}\n
-            Performance is Impacted :{impacted2} \n
-            RCA :\n
-            Dealer Dependency :{dd1} ~{ddp1}\n
-            Tech Issue  : {tii} ~{ti2p}\n
-            Logistics Issue :{li2} ~{lip2} \n
-            Other  : {o1} ~{op1} \n
-            '''
-        )
+    if response['ok']:
+        print("Image sent successfully!")
+    else:
+        print("Failed to send image:", response['error'])
 
-        if response['ok']:
-            print("Image sent successfully!")
-        else:
-            print("Failed to send image:", response['error'])
+except SlackApiError as e:
+    print(f"Error sending image: {e.response['error']}")
 
-    except SlackApiError as e:
-        print(f"Error sending image: {e.response['error']}")
+channel='C06LUMTTLRL'
+image_path = png_file_path2
+
+try:
+    response = client.files_upload(
+        channels=channel,
+        file=image_path,
+        title=f'''_Logistics_eVTF_Report_
+        ''',
+        initial_comment=f'''*_Logistics_eVTF_Report_*\n
+        Last 7 days RCA report:\n
+        Unverified cases : {sdb2}\n
+        Performance is Impacted :{impacted2} \n
+        RCA :\n
+        Dealer Dependency :{dd1} ~{ddp1}\n
+        Tech Issue  : {tii} ~{ti2p}\n
+        Logistics Issue :{li2} ~{lip2} \n
+        Other  : {o1} ~{op1} \n
+        '''
+    )
+
+    if response['ok']:
+        print("Image sent successfully!")
+    else:
+        print("Failed to send image:", response['error'])
+
+except SlackApiError as e:
+    print(f"Error sending image: {e.response['error']}")
 
