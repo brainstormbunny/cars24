@@ -12,7 +12,7 @@ def create_message_with_attachment(to, subject, message_text, files):
     RECIPIENT = to
 
     USERNAME_SMTP = "sahil.5@cars24.com"
-    PASSWORD_SMTP = "qcig mwam pmgk seys"
+    PASSWORD_SMTP = "brmm ipmz amcq yzhd"
     HOST = "smtp.gmail.com"
     PORT = 587
     SUBJECT = subject
