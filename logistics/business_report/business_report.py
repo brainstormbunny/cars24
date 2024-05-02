@@ -19,7 +19,6 @@ today_date=today.strftime('%Y-%m-%d')
 yesterday = today - datetime.timedelta(days=1)
 yesterday_date=yesterday.strftime('%Y-%m-%d')
 yesterday_date1=yesterday.strftime('%d-%B-%Y')
-
 import datetime
 today = datetime.datetime.now()
 today_date=today.strftime('%Y-%m-%d')
