@@ -58,7 +58,6 @@ gd.set_with_dataframe(ws1,df2,resize=True,row=1,col=1)
 
 
 
-
 ws1=gc.open_by_url('https://docs.google.com/spreadsheets/d/1xuboT__o4o7sIA53-MrVUbXERMFRv2M2AY1q9PYS9YM/edit#gid=881800330').worksheet('Raw_data')
 # gd.set_with_dataframe(ws2,df,resize=True,row=1,col=1)  
 df3=pd.DataFrame(ws1.get_all_records())
@@ -68,6 +67,7 @@ df3=df3[df3['Logistics RCA 1'].isin(['G-Form Not Filled'])]
 ws1=gc.open_by_url('https://docs.google.com/spreadsheets/d/1QRs5O70_siBuDgCM4OWVB5w02vhTf4XDrdMzwjJqKFA/edit#gid=0').worksheet('Driver_QC')
 gd.set_with_dataframe(ws1,df3,resize=True,row=1,col=1)  
 # df=pd.DataFrame(ws1.get_all_records())
+
 
 
 
