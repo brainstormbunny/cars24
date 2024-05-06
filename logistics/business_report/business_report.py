@@ -40,6 +40,8 @@ secret_key=os.environ['secret_key']
 
 yesterday_7=yesterday_7.strftime('%d-%b')
 
+sys.exit()
+
 gsheet_auth = 'sahil_creds.json'
 
 # channel = ['C06HR7PBTHP','C06HP83G1GC']
