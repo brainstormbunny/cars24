@@ -5,11 +5,8 @@ import gspread_dataframe as gd
 import datetime
 
 import os
-import snowflake.snowpark as snowpark
-from snowflake.snowpark.functions import col
 from oauth2client.service_account import ServiceAccountCredentials
 import datetime
-import psycopg2 as pg
 import pandas as pd
 from datetime import datetime, timedelta
 import datetime as dt
@@ -20,7 +17,7 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import gspread
 import gspread_dataframe as gd
-home_directory = 'C:/Users/Cars24/Desktop/Notebook/'
+home_directory = 'C:/Users/35115/Desktop/Notebook/'
 gsheet_auth = f'{home_directory}sahil_creds.json'
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(gsheet_auth, scope)
