@@ -729,7 +729,6 @@ def highlight_dealer_row(row, a=['Link Issue', 'Towing Issue', 'CJ Dependency', 
 
 # Apply the function to each row
 styled_df4 = data4.style.apply(highlight_dealer_row, axis=1)
-
 html_table4 = styled_df4.to_html(escape=False, index=False)
 
 html_template = f"""
