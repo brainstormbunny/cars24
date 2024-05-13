@@ -113,3 +113,16 @@ gd.set_with_dataframe(ws1,dq,resize=True,row=1,col=1)
 
 
 
+import snowflake.connector
+email = 'sahil.5@cars24.com'
+WAREHOUSE = 'BI_WH'
+
+# Connect to Snowflake
+ctx = snowflake.connector.connect(
+    user=email,
+    warehouse=WAREHOUSE,
+    account='am62076.ap-southeast-2',
+    authenticator="externalbrowser"  # Assuming you're using external browser authentication
+)
+
+cur = ctx.cursor()
