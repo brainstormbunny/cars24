@@ -895,7 +895,7 @@ except SlackApiError as e:
     print(f"Error sending image: {e.response['error']}")
 
 
-channel = 'C06LUMTTLRL'
+channel = 'C05P9MNRC3T'
 image_path = png_file_path4
 
 try:
