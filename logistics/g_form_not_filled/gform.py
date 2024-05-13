@@ -17,8 +17,8 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import gspread
 import gspread_dataframe as gd
-home_directory = 'C:/Users/35115/Desktop/Notebook/'
-gsheet_auth = f'{home_directory}sahil_creds.json'
+gsheet_auth = 'sahil_creds.json'
+
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(gsheet_auth, scope)
 gc = gspread.authorize(credentials)
