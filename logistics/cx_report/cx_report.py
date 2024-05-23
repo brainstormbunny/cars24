@@ -53,6 +53,45 @@ def chunked(iterable, size):
     return [iterable[i:i+size] for i in range(0, len(iterable), size)]
 
 
+x=['EWB','SKA','NHR','NDL','NUK','NPB','PUN','CHN','STN','UPW','WGJ','UPE','MUM-May 24','STS FEB 24','SAP FEB 24','NRJ May24','EOR  2024','WMH MAY 24','WMP-May24']
+# y='STS FEB 24','SAP FEB 24',"NRJ May'24",'EOR  2024','WMH MAY 24','WMP-May24'
+all_data=pd.DataFrame()
+for i in x:
+    sheet_url = 'https://docs.google.com/spreadsheets/d/1J0JTlYSWeakSTPvE7Hsw99AzQnK2c_udWU-1-JT2rbU/edit#gid=1467218077'
+    sheet = gc.open_by_url(sheet_url)
+    worksheet = sheet.worksheet(i)
+    cell_range1 = worksheet.range("A1:K")
+    data = [[cell.value for cell in row] for row in chunked(cell_range1, 11)]
+    data1 = pd.DataFrame(data)
+    data1.columns = data1.iloc[0]
+    data1 = data1.drop(data1.index[0]).reset_index(drop=True)
+    data1=data1.replace(np.nan,'')
+    data1=data1[['Date','App_ID','Vehicle_Number','Customer_Name','City','Driver_Name','Driver_Locus_ID','Region','Month']]
+    data1=data1.replace('',np.nan)
+    data1=data1[~data1['Date'].isna()]
+    data1=data1[data1['Month']=='May']
+    all_data=pd.concat([all_data,data1],ignore_index=True)
+
+def parse_date(date_str):
+    formats = ['%d/%m/%Y', '%m/%d/%Y', '%Y-%m-%d', '%d-%m-%Y','%d/%m/%Y %H:%M:%S']  # Add more formats as needed
+    for fmt in formats:
+        try:
+            return pd.to_datetime(date_str, format=fmt)
+        except ValueError:
+            pass
+    return None  # Return None if no format matches
+
+# Assuming 'Date' is a column in your DataFrame 'all_data'
+all_data['Date'] = all_data['Date'].apply(parse_date)
+
+
+ws1=gc.open_by_url('https://docs.google.com/spreadsheets/d/1fo8q9ivgLykEcyeSbZwVfBznjq39yc3qkoDjEhua4mI/edit#gid=1425054139').worksheet('Compiled Data')
+gd.set_with_dataframe(ws1,all_data,resize=False,row=1,col=1)
+
+
+time.sleep(5)
+
+
 sheet_url = 'https://docs.google.com/spreadsheets/d/1fo8q9ivgLykEcyeSbZwVfBznjq39yc3qkoDjEhua4mI/edit#gid=1940626723'
 sheet = gc.open_by_url(sheet_url)
 worksheet = sheet.worksheet("Report")
