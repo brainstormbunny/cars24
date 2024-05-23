@@ -49,28 +49,32 @@ data1=data1.replace('',np.nan)
 data1=data1[~data1['LEAD_ID'].isna()]
 print(data1)
 
-
 data1['LEAD_ID'] = data1['LEAD_ID'].astype(str)
-
 print(data1)
-
 
 # Create a tuple of lead IDs
 lead_id_tuple = tuple(data1['LEAD_ID'])
 print(lead_id_tuple)
 
-
 query = """
-Select S.* from PC_STITCH_DB.ADMIN_PANEL_PROD_DEALERENGINE_PROD.ORDERS AS ORDERS
+  Select * from (Select 
+ORDERS.LEAD_ID,ORDERS.REGISTRATION_NUMBER,
+-- ORDERS.CREATED_AT,
+-- S.BUY_DATE,S.SALE_DATE,ORDERS.MAKE,ORDERS.MODEL,ORDERS.FUEL_TYPE,
 
-LEFT JOIN (Select APPT_ID,C24_QUOTE from "PC_STITCH_DB"."FIVETRAN1_BI"."SALES_TRANSACTIONS") S ON ORDERS.LEAD_ID = S.APPT_ID
+REPLACE(S.BUY_DATE,'.000','') AS BUY_DATE,REPLACE(S.SALE_DATE,'.000','') AS SALE_DATE,ORDERS.MAKE,ORDERS.MODEL,ORDERS.FUEL_TYPE,
 
-WHERE LEAD_ID IN """+str(lead_id_tuple)+""";
+
+Case when s.dealer_code in ('63645','83137','75812','83645','109842') then 'GS' else 'C2B' end as GS_NON_GS_FLAG
+,ORDERS.YEAR,ORDERS.VARIANT,C24_QUOTE
+from PC_STITCH_DB.FIVETRAN1_BI.SALES_TRANSACTIONS S
+LEFT JOIN PC_STITCH_DB.ADMIN_PANEL_PROD_DEALERENGINE_PROD.ORDERS on ORDERS.lead_id = s.APPT_ID
+Where ORDERS.LEAD_ID  IN """+str(lead_id_tuple)+""");
         """  
 
 cur.execute(query)
 rows = cur.fetchall()
 df = pd.DataFrame(rows, columns=[desc[0] for desc in cur.description])
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/14ANHPawQlKMPfWXgZJW_75EZdoYREWdLEJum9oPzeq4/edit#gid=0').worksheet('Sheet2')
-gd.set_with_dataframe(ws,df,resize=False,row=1,col=1)  #write
+gd.set_with_dataframe(ws,df,resize=True,row=1,col=1)  #write
 #
