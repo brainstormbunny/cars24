@@ -22,7 +22,6 @@ import numpy as npx
 import gspread
 import gspread_dataframe as gd
 gsheet_auth='sahil_creds.json'
-
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(gsheet_auth, scope)
 gc = gspread.authorize(credentials)
