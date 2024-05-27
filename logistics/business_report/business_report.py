@@ -703,3 +703,227 @@ try:
 except SlackApiError as e:
     print(f"Error sending image: {e.response['error']}")
 
+
+
+###################Driver QC##################################
+
+sheet_url = 'https://docs.google.com/spreadsheets/d/1xuboT__o4o7sIA53-MrVUbXERMFRv2M2AY1q9PYS9YM/edit#gid=120478345'
+sheet = gc.open_by_url(sheet_url)
+worksheet = sheet.worksheet("Report1")
+cell_range4 = worksheet.range("B4:V29")
+data4 = [[cell.value for cell in row] for row in chunked(cell_range4, 21)]
+data4 = pd.DataFrame(data4)
+data4.columns = data4.iloc[0]
+data4 = data4.drop(data4.index[0]).reset_index(drop=True)
+data4=data4.replace(np.nan,'')
+
+data4=data4.replace('0.0%','')
+
+
+
+def highlight_dealer_row(row, a=['Link Issue', 'Towing Issue', 'CJ Dependency', 'Logistics Issue','Business Approval','Other Issue']):
+    if row['Driver QC'] in a:
+        return ['background-color: darkgrey']*len(row)
+    else:
+        return ['']*len(row)
+
+# Apply the function to each row
+styled_df4 = data4.style.apply(highlight_dealer_row, axis=1)
+html_table4 = styled_df4.to_html(escape=False, index=False)
+
+html_template = f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {{
+            width: fit-content;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            align-content: center;
+        }}
+
+        table, th, td {{
+            border: 1px solid rgb(5, 9, 30);
+            border-collapse: collapse;
+            text-align: center;
+            text-indent: 5px;
+        }}
+
+        td {{
+            max-height: fit-content;
+            max-width: fit-content;
+        }}
+
+        #firstdiv {{
+            border-top: 2px solid rgb(76, 104, 65);
+            border-left: 2px solid rgb(76, 104, 65);
+            border-right: 2px solid rgb(76, 104, 65);
+            background-color: rgb(50, 91, 168);
+            background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+            padding-bottom: 2px;
+            color: white;
+        }}
+
+        h3 {{
+            font-size: 35px;
+            margin-top: 10px;
+        }}
+
+        h4 {{
+            background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+            text-align: left;
+            padding-left: 10px;
+            color: #ffffff;
+            background-color: rgb(5, 9, 30);
+            border: 2px solid rgb(5, 9, 30);
+        }}
+
+        th {{
+            background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+            color: #ffffff;
+        }}
+    </style>
+</head>
+<body style="display: inline-flexbox; align-content: center;">
+    <div id="firstdiv" style="text-align: center; background-color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: auto;">
+        <h3>Driver QC RCA </h3>
+    </div>
+    <div class="city" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: inline-flexbox; align-content: center;">
+        <h4>Driver QC Report From- {yesterday7}  To-{yesterday_date1} :</h4>
+        {html_table4}
+    </div>
+   
+</body>
+</html>
+"""
+
+html_file_path4 = 'Driver_QC.html'
+
+# Save the HTML content to a file
+with open(html_file_path4, 'w') as file:
+    file.write(html_template)
+
+print(f"HTML file saved successfully at: {html_file_path4}")
+
+    
+def html_to_png(html_file, output_file):
+    # Configure headless Chrome
+    options = Options()
+    options.add_argument("--headless")  # Run in headless mode, i.e., without opening a browser window
+    driver = webdriver.Chrome(options=options)
+    
+    driver.get("file:///" + os.path.abspath(html_file))
+    
+    time.sleep(2) 
+    
+    driver.set_window_size(1270, 900)
+    
+    driver.save_screenshot(output_file)
+    
+    driver.quit()
+
+if __name__ == "__main__":
+    html_file_path4 = 'Driver_QC.html'
+    png_file_path4 = 'Driver_QC.png'
+
+    html_to_png(html_file_path4, png_file_path4)
+
+
+data4['Driver QC'] = data4['Driver QC'].str.strip()
+
+sdb4 = data4.loc[data4['Driver QC'] == 'Pending RCA', 'Overall'].iloc[0]
+
+impacted4 = data4.loc[data4['Driver QC'] == 'Driver QC Adherence', 'Overall'].iloc[0]
+impacted4=float(impacted4.strip('%'))
+impacted4 = round((100 - impacted4),0)
+impacted4 = str(impacted4) + '%'
+
+lii4=data4.loc[data4['Driver QC']=='Link Issue','Overall'].iloc[0]
+lii4p=data4.loc[data4['Driver QC']=='Link Issue','Overall%'].iloc[0]
+prca4=data4.loc[data4['Driver QC'] == 'Pending RCA', 'Overall'].iloc[0]
+
+ti4=data4.loc[data4['Driver QC']=='Towing Issue','Overall'].iloc[0]
+ti4p=data4.loc[data4['Driver QC']=='Towing Issue','Overall%'].iloc[0]
+
+cd4=data4.loc[data4['Driver QC']=='CJ Dependency','Overall'].iloc[0]
+cd4p=data4.loc[data4['Driver QC']=='CJ Dependency','Overall%'].iloc[0]
+
+li4=data4.loc[data4['Driver QC']=='Logistics Issue','Overall'].iloc[0]
+li4p=data4.loc[data4['Driver QC']=='Logistics Issue','Overall%'].iloc[0]
+
+ba4=data4.loc[data4['Driver QC']=='Business Approval','Overall'].iloc[0]
+ba4p=data4.loc[data4['Driver QC']=='Business Approval','Overall%'].iloc[0]
+
+oi4=data4.loc[data4['Driver QC']=='Other Issue','Overall'].iloc[0]
+oi4p=data4.loc[data4['Driver QC']=='Other Issue','Overall%'].iloc[0]
+
+client = WebClient(token=slack_token)
+
+channel = 'C06LUMTTLRL'
+image_path = png_file_path4
+
+try:
+    response = client.files_upload(
+        channels=channel,
+        file=image_path,
+        title=f'''_Logistics_Driver_QC
+        ''',
+        initial_comment=f'''*_Logistics_Driver_QC*\n
+        Last 7 days RCA report:\n
+        Pending RCA cases : {prca4}\n
+
+        Performance is Impacted :{impacted4} \n
+        RCA :\n
+        Link Issue :{lii4} ~{lii4p}\n
+        Towing Issue  : {ti4} ~{ti4p}\n
+        Logistics Issue :{li4} ~{li4p} \n
+        Link Issue :{lii4} ~{lii4p}\n
+        Business Approval :{ba4} ~{ba4p}\n
+        Other Issue :{oi4} ~{oi4p}\n
+        '''
+    )
+
+    if response['ok']:
+        print("Image sent successfully!")
+    else:
+        print("Failed to send image:", response['error'])
+
+except SlackApiError as e:
+    print(f"Error sending image: {e.response['error']}")
+
+
+channel = 'C05P9MNRC3T'
+image_path = png_file_path4
+
+try:
+    response = client.files_upload(
+        channels=channel,
+        file=image_path,
+        title=f'''_Logistics_Driver_QC
+        ''',
+        initial_comment=f'''*_Logistics_Driver_QC*\n
+        Last 7 days RCA report:\n
+        Pending RCA cases : {prca4}\n
+
+        Performance is Impacted :{impacted4} \n
+        RCA :\n
+        Link Issue :{lii4} ~{lii4p}\n
+        Towing Issue  : {ti4} ~{ti4p}\n
+        Logistics Issue :{li4} ~{li4p} \n
+        Link Issue :{lii4} ~{lii4p}\n
+        Business Approval :{ba4} ~{ba4p}\n
+        Other Issue :{oi4} ~{oi4p}\n
+        '''
+    )
+
+    if response['ok']:
+        print("Image sent successfully!")
+    else:
+        print("Failed to send image:", response['error'])
+
+except SlackApiError as e:
+    print(f"Error sending image: {e.response['error']}")
+
