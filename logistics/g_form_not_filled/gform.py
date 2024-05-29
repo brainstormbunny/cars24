@@ -3,7 +3,6 @@ import gspread
 import pandas as pd
 import gspread_dataframe as gd
 import datetime
-
 import os
 from oauth2client.service_account import ServiceAccountCredentials
 import datetime
@@ -22,9 +21,7 @@ gsheet_auth = 'sahil_creds.json'
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(gsheet_auth, scope)
 gc = gspread.authorize(credentials)
-
 import datetime
-
 today = datetime.datetime.now()
 today_date = today.strftime('%b')
 print(today)
