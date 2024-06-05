@@ -53,7 +53,7 @@ def chunked(iterable, size):
     return [iterable[i:i+size] for i in range(0, len(iterable), size)]
 
 
-x=['EWB','SKA','NHR','NDL','NUK','NPB','PUN','CHN','STN','UPW','WGJ','UPE','MUM-May 24','STS FEB 24','SAP FEB 24','NRJ May24','EOR  2024','WMH MAY 24','WMP-May24']
+x=['EWB','SKA','NHR','NDL','NUK','NPB','PUN','CHN','STN','UPW','WGJ','UPE','MUM-May 24','STS 24','SAP FEB 24','NRJ May24','EOR  2024','WMH MAY 24','WMP-May24']
 # y='STS FEB 24','SAP FEB 24',"NRJ May'24",'EOR  2024','WMH MAY 24','WMP-May24'
 all_data=pd.DataFrame()
 for i in x:
