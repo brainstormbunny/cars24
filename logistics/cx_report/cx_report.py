@@ -69,7 +69,7 @@ for i in x:
     data1=data1[['Date','App_ID','Vehicle_Number','Customer_Name','City','Driver_Name','Driver_Locus_ID','Region','Month']]
     data1=data1.replace('',np.nan)
     data1=data1[~data1['Date'].isna()]
-    data1=data1[data1['Month']=='May']
+    data1=data1[data1['Month'].isin(['May','Jun'])]
     all_data=pd.concat([all_data,data1],ignore_index=True)
 
 def parse_date(date_str):
@@ -87,10 +87,9 @@ all_data['Date'] = all_data['Date'].apply(parse_date)
 
 ws1=gc.open_by_url('https://docs.google.com/spreadsheets/d/1fo8q9ivgLykEcyeSbZwVfBznjq39yc3qkoDjEhua4mI/edit#gid=1425054139').worksheet('Compiled Data')
 gd.set_with_dataframe(ws1,all_data,resize=False,row=1,col=1)
-
-
+print('done')
+sys.exit()
 time.sleep(5)
-
 
 sheet_url = 'https://docs.google.com/spreadsheets/d/1fo8q9ivgLykEcyeSbZwVfBznjq39yc3qkoDjEhua4mI/edit#gid=1940626723'
 sheet = gc.open_by_url(sheet_url)
