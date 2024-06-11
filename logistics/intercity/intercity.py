@@ -25,7 +25,7 @@ import datetime
 today = datetime.datetime.now()
 today_date=today.strftime('%Y-%m-%d')
 yesterday = today - datetime.timedelta(days=1)
-gsheet_auth = 'sahil_creds.json'
+gsheet_auth='C:/Users/35115/Desktop/Notebook/sahil_creds.json'
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(gsheet_auth, scope)
 gc = gspread.authorize(credentials)
@@ -46,7 +46,7 @@ ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1wZGLobMn-uVuz2BUIwPKH
 # gd.set_with_dataframe(ws,df,resize=False,row=1,col=1)  #write
 gs1=pd.DataFrame(ws.get_all_records()) 
 
-gs=gs1[['APPOINTMENTID']]
+gs=gs1[['APPOINTMENTID','REQUESTED_PICKUP_TIME']]
 gs = gs.rename(columns={'APPOINTMENTID': 'LEAD_ID'})
 gs['C2B/GS'] = 'GS'
 
@@ -63,11 +63,11 @@ md['Mapping_Date']=''
 
 md_dd=md[['LEAD_ID','REGISTRATION_NUMBER','SALE_CONFIRMED_DATE','Mapping_Date']]
 
-md=md[['REGISTRATION_NUMBER']]
+md=md[['REGISTRATION_NUMBER','SALE_CONFIRMED_DATE']]
 md = md.drop_duplicates()
 md['check']='a'
 
-data1=data.merge(md,on='REGISTRATION_NUMBER',how='left')
+data1=data.merge(md,on=['REGISTRATION_NUMBER','SALE_CONFIRMED_DATE'],how='left')
 data1['check']=data1['check'].replace(np.nan,'b')
 data1_filtered = data1.loc[data1['check'] == 'b']
 
