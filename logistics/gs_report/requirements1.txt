@@ -1,0 +1,13 @@
+gspread-dataframe
+pandas
+snowflake-connector-python
+gspread
+oauth2client
+numpy
+times
+imgkit
+slack-sdk
+webclient-helper
+selenium
+selenium-chrome
+Jinja2 
