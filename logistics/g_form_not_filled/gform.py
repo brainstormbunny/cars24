@@ -38,7 +38,7 @@ ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1QRs5O70_siBuDgCM4OWVB
 gd.set_with_dataframe(ws,df,resize=True,row=1,col=1)  
 # df=pd.DataFrame(ws.get_all_records())
 dfr=dff.replace('',np.nan)
-dfr=dfr[dfr['Month']==today_date]
+# dfr=dfr[dfr['Month']==today_date]
 dfr = dfr[~dfr['CHD Remarks 1'].isna()]
 print(dfr)
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1qfcojWdvI8kqCnTwJmkZJC1-XsUX6R_LwHT3KT0I5ng/edit#gid=0').worksheet('CHD')
@@ -49,7 +49,7 @@ ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1QRs5O70_siBuDgCM4OWVB
 gd.set_with_dataframe(ws,df1,resize=True,row=1,col=1)  
 # df=pd.DataFrame(ws.get_all_records())
 dfe=dff.replace('',np.nan)
-dfe=dfe[dfe['Month']==today_date]
+# dfe=dfe[dfe['Month']==today_date]
 dfe = dfe[~dfe['EVTF Remarks 1'].isna()]
 
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1qfcojWdvI8kqCnTwJmkZJC1-XsUX6R_LwHT3KT0I5ng/edit#gid=0').worksheet('eVTF')
@@ -67,7 +67,7 @@ ws1=gc.open_by_url('https://docs.google.com/spreadsheets/d/1QRs5O70_siBuDgCM4OWV
 gd.set_with_dataframe(ws1,df2,resize=True,row=1,col=1)  
 # df=pd.DataFrame(ws1.get_all_records())
 dfs=df22.replace('',np.nan)
-dfs=dfs[dfs['Req_Month']==today_date]
+# dfs=dfs[dfs['Req_Month']==today_date]
 dfs=dfs[~dfs['Regional Team Remarks 2'].isna()]
 ws1=gc.open_by_url('https://docs.google.com/spreadsheets/d/1qfcojWdvI8kqCnTwJmkZJC1-XsUX6R_LwHT3KT0I5ng/edit#gid=362389993').worksheet('Slot_Adherence')
 gd.set_with_dataframe(ws1,dfs,resize=True,row=1,col=1)  
@@ -82,7 +82,7 @@ ws1=gc.open_by_url('https://docs.google.com/spreadsheets/d/1QRs5O70_siBuDgCM4OWV
 gd.set_with_dataframe(ws1,df3,resize=True,row=1,col=1)  
 # df=pd.DataFrame(ws1.get_all_records())
 dq=df33.replace('',np.nan)
-dq=dq[dq['Month']==today_date]
+# dq=dq[dq['Month']==today_date]
 dq=dq[dq['Is Eligible for QC']=='Eligible']
 # dq['Logistics RCA 1']=dq['Logistics RCA 1'].fillna('',np.nan)
 dq=dq[~dq['Logistics RCA 1'].isna()]

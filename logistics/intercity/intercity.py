@@ -185,9 +185,9 @@ ws1212=gc.open_by_url('https://docs.google.com/spreadsheets/d/1pT6CDU0cNoaO0cukm
 gd.set_with_dataframe(ws1212,ptl_data,resize=True,row=1,col=1)
 
 data_final11=data_final1[['LEAD_ID','REGISTRATION_NUMBER','MAKE','MODEL','PARKING_CITY','LATEST_PARKING_YARD','SALE_CONFIRMED_DATE','PICKUP_REGION_NAME','LANE_CONCAT','FLAG']]
+data_final11=data_final11[~data_final11['LANE_CONCAT'].isin(['Gurgaon-Delhi NCR','New Delhi-Delhi NCR'])]
 html_data=data_final11.to_html(classes='center', index=False, escape=False, justify='center')
 html_data = html_data.replace('<table', '<table style="text-align:center;"')
-
 
 email_id=['vishal.singh@aigc.co.in','abhishek.shukla@cars24.com','rupesh@aigc.co.in','varunkaushik@trfvlsl.com','chandra.shekhar@aigc.co.in','anilsharma@trfvlsl.com','gaurav.singh@aigc.co.in','shiv.yadav@cars24.com','operations.mum@cars24.com','operations.tru@cars24.com','operations.bho@cars24.com','operations.pun@cars24.com','operations.ncr@cars24.com','operations.cbe@cars24.com','operations.che@cars24.com','operations.up@cars24.com','operations.mad@cars24.com','operations.sal@cars24.com','trichy.operations@cars24.com','operations.hyd@cars24.com','operations.cdh@cars24.com',	'operations.ldh@cars24.com','ops.direct.punj@cars24.com','operations.ind@cars24.com','ops.direct.guj@cars24.com','operations.mhr@cars24.com','opeartions.mhr@cars24.com','ops.direct.mah@cars24.com']
 html = 'Hi Vishal<br> <br> Please find below today Request <br><br>' +html_data +'<br> <br> Regards<br> Sahil '
