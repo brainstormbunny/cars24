@@ -185,7 +185,7 @@ ws1212=gc.open_by_url('https://docs.google.com/spreadsheets/d/1pT6CDU0cNoaO0cukm
 gd.set_with_dataframe(ws1212,ptl_data,resize=True,row=1,col=1)
 
 data_final11=data_final1[['LEAD_ID','REGISTRATION_NUMBER','MAKE','MODEL','PARKING_CITY','LATEST_PARKING_YARD','SALE_CONFIRMED_DATE','PICKUP_REGION_NAME','LANE_CONCAT','FLAG']]
-data_final11=data_final11[~data_final11['LANE_CONCAT'].isin(['Gurgaon-Delhi NCR','New Delhi-Delhi NCR','DELHI/NCR-GHAZIABAD CITY'])]
+data_final11=data_final11[~data_final11['LANE_CONCAT'].isin(['Gurgaon-Delhi NCR','New Delhi-Delhi NCR','DELHI/NCR-GHAZIABAD CITY','UJJAIN-UJJAIN CITY'])]
 html_data=data_final11.to_html(classes='center', index=False, escape=False, justify='center')
 html_data = html_data.replace('<table', '<table style="text-align:center;"')
 
