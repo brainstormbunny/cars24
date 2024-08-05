@@ -579,10 +579,8 @@ and FROM_LOCATION <> '_'
 LEFT JOIN (Select LEAD_ID,MAKE,MODEL,FUEL_TYPE FROM PC_STITCH_DB.ADMIN_PANEL_PROD_DEALERENGINE_PROD.ORDERS) ORDERS ON ORDERS.LEAD_ID = TF.APPOINTMENTID
 LEFT JOIN (Select APPT_ID,C24_QUOTE from "PC_STITCH_DB"."FIVETRAN1_BI"."SALES_TRANSACTIONS") S ON ORDERS.LEAD_ID = S.APPT_ID )
 where TRIP_STATUS not in ('Cancelled','Denied') and LEG_TYPE in ('Last_Mile','Middle_Mile','First_Mile') 
-) where MONTH_NAME in ('May','Jun','Jul') 
-
-        """
-        
+) where MONTH_NAME in ('Jul') 
+"""   
 cur.execute(query)
 rows = cur.fetchall()
 df = pd.DataFrame(rows, columns=[desc[0] for desc in cur.description])
@@ -957,7 +955,7 @@ ORDERS.STATUS_ID <> 12
 AND OPS.CREATED_AT IS NOT NULL --AND UPPER(CL.CENTRE) NOT LIKE ('%B2B%')
 --AND UPPER(Cl.centre) NOT LIKE '%-PNS%' AND UPPER(Cl.centre) NOT LIKE '%- PNS%'
 ORDER BY OLA.CREATED_AT ASC))T)T2
-Where TO_DATE(pickup_date_final) >= to_date(cast(convert_timezone('Asia/Kolkata',current_timestamp())as TIMESTAMP_NTZ))-100)T2
+Where TO_DATE(pickup_date_final) >= to_date(cast(convert_timezone('Asia/Kolkata',current_timestamp())as TIMESTAMP_NTZ))-60)T2
 LEFT JOIN (Select APPOINTMENTID,INSPECTIONSTARTTIME_F from PC_STITCH_DB.WORK.FIRST_INSPECTION_DATA) FI ON T2.LEAD_ID = FI.APPOINTMENTID
 LEFT JOIN 
 (Select * from (Select *,
@@ -971,10 +969,6 @@ from PC_STITCH_DB.ADMIN_PANEL_PROD_DEALERENGINE_PROD.ORDERS
 LEFT JOIN PC_STITCH_DB.ADMIN_PANEL_PROD_DEALERENGINE_PROD.ORDER_PURCHASE_REQUEST OPR2 ON OPR2.FK_ORDER_ID = ORDERS.ORDER_ID AND OPR2.STATUS = 3)PLL
 ON T4.LEAD_ID = PLL.LEAD_ID)FT) WHERE   MONTH_NAME not in ('Jul-3021','Mar-2032')
 
-
-
-
-
 """
 
 cur.execute(query)
@@ -982,4 +976,4 @@ rows = cur.fetchall()
 df2 = pd.DataFrame(rows, columns=[desc[0] for desc in cur.description])
 
 ws2=gc.open_by_url('https://docs.google.com/spreadsheets/d/1qv6BVhMkdpBOXxx85shj5jSKSVWs2Tu79flEVp0m-B8/edit?gid=0#gid=0').worksheet('Sheet1')
-gd.set_with_dataframe(ws2,df2,resize=False,row=1,col=1)  
+gd.set_with_dataframe(ws2,df2,resize=True,row=1,col=1)  
