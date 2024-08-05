@@ -12,7 +12,7 @@ def create_message_with_attachment(to, subject, message_text, files):
     RECIPIENT = to
 
     USERNAME_SMTP = "sahil.5@cars24.com"
-    PASSWORD_SMTP = "brmm ipmz amcq yzhd"
+    PASSWORD_SMTP = "xmas xvno wnzs gjwd"
     HOST = "smtp.gmail.com"
     PORT = 587
     SUBJECT = subject
@@ -66,7 +66,7 @@ def create_message_without_attachment(to, subject, message_text):
     RECIPIENT = to
 
     USERNAME_SMTP = "sahil.5@cars24.com"
-    PASSWORD_SMTP = "brmm ipmz amcq yzhd"
+    PASSWORD_SMTP = "xmas xvno wnzs gjwd"
     HOST = "smtp.gmail.com"
     PORT = 587
     SUBJECT = subject
@@ -111,7 +111,7 @@ def email_with_attachment_multiple_files(to,subject,message_text,files,count):
 	
 	USERNAME_SMTP = "AKIAXWY47RBV43MJ3JH4"
 
-	PASSWORD_SMTP = "brmm ipmz amcq yzhd"
+	PASSWORD_SMTP = "xmas xvno wnzs gjwd"
 
 	HOST = "smtp.gmail.com"
 	PORT = 587
