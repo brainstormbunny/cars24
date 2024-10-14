@@ -1,4 +1,3 @@
-import snowflake.connector
 import gspread
 import pandas as pd
 import gspread_dataframe as gd
@@ -7,7 +6,7 @@ import os
 from oauth2client.service_account import ServiceAccountCredentials
 import datetime
 import pandas as pd
-from datetime import datetime, timedelta
+from datetime import datetime
 import datetime as dt
 import numpy as np
 import warnings
@@ -17,7 +16,6 @@ import numpy as np
 import gspread
 import gspread_dataframe as gd
 gsheet_auth = 'sahil_creds.json'
-
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(gsheet_auth, scope)
 gc = gspread.authorize(credentials)
@@ -48,15 +46,13 @@ df1=dff[dff['EVTF Remarks 1'].isin(['G form not filled'])]
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1QRs5O70_siBuDgCM4OWVB5w02vhTf4XDrdMzwjJqKFA/edit#gid=0').worksheet('eVTF')
 gd.set_with_dataframe(ws,df1,resize=True,row=1,col=1)  
 # df=pd.DataFrame(ws.get_all_records())
-dfe=dff.replace('',np.nan)
+dfe=dff.replace('',np.nan) 
 # dfe=dfe[dfe['Month']==today_date]
 dfe = dfe[~dfe['EVTF Remarks 1'].isna()]
 
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1qfcojWdvI8kqCnTwJmkZJC1-XsUX6R_LwHT3KT0I5ng/edit#gid=0').worksheet('eVTF')
 gd.set_with_dataframe(ws,dfe,resize=True,row=1,col=1)  
-
 ##############################################SLOT Adhernece##################################
-
 ws1=gc.open_by_url('https://docs.google.com/spreadsheets/d/1CUWKMUGl5ninrWOzKGob1y3h3lxiC_EgGCw2N9qVsZw/edit#gid=0').worksheet('Raw Data')
 # gd.set_with_dataframe(ws2,df,resize=True,row=1,col=1)  
 df22=pd.DataFrame(ws1.get_all_records())
