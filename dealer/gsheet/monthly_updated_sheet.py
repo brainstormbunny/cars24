@@ -69,8 +69,6 @@ data1 = data1.drop(data1.index[0]).reset_index(drop=True)
 data1=data1.replace(np.nan,'')
 data1
 
-
-
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1KYSg23PXx0UlcPLEva545GU_41y3flsEmoD5oj2mwlw/edit?pli=1&gid=0#gid=0').worksheet('Simpler_data')
 ws.batch_clear(['A1:AE'])
 gd.set_with_dataframe(ws,data1,resize=False,row=1,col=1)  
