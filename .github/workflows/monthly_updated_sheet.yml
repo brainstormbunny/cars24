@@ -2,7 +2,7 @@ name: Python Script
 
 on:
   schedule:
-    - cron: '1 1-9/3 * * *'
+    - cron: '1 2-23/3 * * *'
   workflow_dispatch:
 
 jobs:
@@ -24,6 +24,5 @@ jobs:
 
       - name: Run script
         run: python dealer/gsheet/monthly_updated_sheet.py
-        # env:
-        #   # Define any necessary environment variables here
-        #   # VARIABLE_NAME: ${{ secrets.YOUR_SECRET }}  # Example for using secrets
+        env:
+          secret_key: ${{ secrets.TOKEN1 }}
