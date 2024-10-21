@@ -24,6 +24,11 @@ today = datetime.datetime.now()
 today_date = today.strftime('%b')
 print(today)
 print(today_date)
+
+
+def chunked(iterable, size):
+    return [iterable[i:i+size] for i in range(0, len(iterable), size)]
+
 #Form Response
 
 source_ws = gc.open_by_url('https://docs.google.com/spreadsheets/d/1tZL5V-w8gu6SMRCc6Hzm0IkkOfVXjjZ55ltaMdngOtg/edit?gid=328438549#gid=328438549').worksheet('Monthly_sheet')
@@ -37,13 +42,36 @@ ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdz
 ws.batch_clear(['A1:M'])
 gd.set_with_dataframe(ws,df,resize=False,row=1,col=1)  
 
-#Simpler Data
+# #Simpler Data (Control Base Tower)
 
-# df1 = gc.open_by_url('https://docs.google.com/spreadsheets/d/1tZL5V-w8gu6SMRCc6Hzm0IkkOfVXjjZ55ltaMdngOtg/edit?gid=328438549#gid=328438549').worksheet('Processed_Data')
-# df1 = pd.DataFrame(df1.get_all_records())
-# df1=df1[['LEAD_ID','LOAN_APPLICATION_ID','CONTACT_NUMBER','LATEST_LEAD_CREATION_TIMESTAMP','LOGIN_DATE','FINAL_TENURE','FINAL_ROI','FINAL_DISBURSABLE_LOAN_AMOUNT','FINAL_TOTAL_LOAN_AMOUNT','CREDIT_APPROVAL_FLAG','CHANNEL_DS','DC_FTR','TOTAL_LTV','CREDIT_APPROVED_TIMESTAMP','TNC_ACCEPTED_TIMESTAMP','LEAD_MODIFIED_BY','DEALER_CITY','DEALER_CODE2','CASE_STATUS','DISBURSED_TIME','HPA_STATUS','LAST_RISK_BUCKET','Final Dealer code','DEALER_CITY','Final FOS','Credit LTV','DS_ROI','DS_CHANNEL']]
-# df1 = df1[~df1['LEAD_ID'].isna()]
-# print(df1)
-# ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdzZY_wbwDLwzfjVLyoUmLvDA/edit?gid=1271618088#gid=1271618088').worksheet('Sheet2')
-# # ws.batch_clear(['A1:M'])
-# gd.set_with_dataframe(ws,df1,resize=True,row=1,col=1)  
+df1 = gc.open_by_url('https://docs.google.com/spreadsheets/d/1tZL5V-w8gu6SMRCc6Hzm0IkkOfVXjjZ55ltaMdngOtg/edit?gid=328438549#gid=328438549').worksheet('Processed_Data')
+df1 = pd.DataFrame(df1.get_all_records())
+df1=df1[['LEAD_ID','LOAN_APPLICATION_ID','CONTACT_NUMBER','LATEST_LEAD_CREATION_TIMESTAMP','LOGIN_DATE','FINAL_TENURE','FINAL_ROI','FINAL_DISBURSABLE_LOAN_AMOUNT','FINAL_TOTAL_LOAN_AMOUNT','CREDIT_APPROVAL_FLAG','CHANNEL_DS','DC_FTR','TOTAL_LTV','CREDIT_APPROVED_TIMESTAMP','TNC_ACCEPTED_TIMESTAMP','LEAD_MODIFIED_BY','DEALER_CITY','DEALER_CODE2','CASE_STATUS','DISBURSED_TIME','HPA_STATUS','LAST_RISK_BUCKET','Final Dealer code','DEALER_CITY','Final FOS','Credit LTV','DS_ROI','DS_CHANNEL']]
+df1 = df1[~df1['LEAD_ID'].isna()]
+print(df1)
+ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdzZY_wbwDLwzfjVLyoUmLvDA/edit?gid=1271618088#gid=1271618088').worksheet('Simpler_data_raw')
+ws.batch_clear(['A1:AB'])
+gd.set_with_dataframe(ws,df1,resize=False,row=1,col=1)  
+
+#Contest Sheet (Simpler Data)
+
+
+def chunked(iterable, size):
+    return [iterable[i:i+size] for i in range(0, len(iterable), size)]
+sheet_url = 'https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdzZY_wbwDLwzfjVLyoUmLvDA/edit?gid=0#gid=0'
+sheet = gc.open_by_url(sheet_url)
+worksheet = sheet.worksheet("Simpler_data")
+cell_range1 = worksheet.range("A1:AE")
+data = [[cell.value for cell in row] for row in chunked(cell_range1, 31)]
+data1 = pd.DataFrame(data)
+data1.columns = data1.iloc[0]
+data1 = data1.drop(data1.index[0]).reset_index(drop=True)
+data1=data1.replace(np.nan,'')
+data1
+
+
+
+ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1KYSg23PXx0UlcPLEva545GU_41y3flsEmoD5oj2mwlw/edit?pli=1&gid=0#gid=0').worksheet('Simpler_data')
+ws.batch_clear(['A1:AE'])
+gd.set_with_dataframe(ws,data1,resize=False,row=1,col=1)  
+
