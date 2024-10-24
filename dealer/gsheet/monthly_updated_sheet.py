@@ -48,7 +48,7 @@ ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdz
 ws.batch_clear(['A1:M'])
 gd.set_with_dataframe(ws,df,resize=False,row=1,col=1)  
 
-time.sleep(10)
+time.sleep(5)
 
 
 # #Simpler Data (Control Base Tower)
@@ -63,7 +63,7 @@ ws.batch_clear(['A1:AB'])
 gd.set_with_dataframe(ws,df1,resize=False,row=1,col=1)  
 
 #Contest Sheet (Simpler Data)
-time.sleep(10)
+time.sleep(5)
 
 
 def chunked(iterable, size):
@@ -82,7 +82,6 @@ data11
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1KYSg23PXx0UlcPLEva545GU_41y3flsEmoD5oj2mwlw/edit?pli=1&gid=0#gid=0').worksheet('Simpler_data')
 ws.batch_clear(['A1:AE'])
 gd.set_with_dataframe(ws,data11,resize=False,row=1,col=1)  
-
 
 
 sheet_url = 'https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdzZY_wbwDLwzfjVLyoUmLvDA/edit?gid=599981802#gid=599981802'
