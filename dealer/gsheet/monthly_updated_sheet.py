@@ -34,8 +34,9 @@ print(today_date)
 
 def chunked(iterable, size):
     return [iterable[i:i+size] for i in range(0, len(iterable), size)]
+########################################################################################################################
 
-#Form Response
+#Monthly_Updated_Sheet - Form_Response4
 
 source_ws = gc.open_by_url('https://docs.google.com/spreadsheets/d/1tZL5V-w8gu6SMRCc6Hzm0IkkOfVXjjZ55ltaMdngOtg/edit?gid=328438549#gid=328438549').worksheet('Monthly_sheet')
 dff = pd.DataFrame(source_ws.get_all_records())
@@ -48,10 +49,10 @@ ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdz
 ws.batch_clear(['A1:M'])
 gd.set_with_dataframe(ws,df,resize=False,row=1,col=1)  
 
-time.sleep(5)
+time.sleep(2)
 
-
-# #Simpler Data (Control Base Tower)
+########################################################################################################################
+#Simpler_Data_from_(Control Base Tower)_TO_Monthly_Updated_sheet
 
 df1 = gc.open_by_url('https://docs.google.com/spreadsheets/d/1tZL5V-w8gu6SMRCc6Hzm0IkkOfVXjjZ55ltaMdngOtg/edit?gid=328438549#gid=328438549').worksheet('Processed_Data')
 df1 = pd.DataFrame(df1.get_all_records())
@@ -62,9 +63,9 @@ ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdz
 ws.batch_clear(['A1:AB'])
 gd.set_with_dataframe(ws,df1,resize=False,row=1,col=1)  
 
-#Contest Sheet (Simpler Data)
-time.sleep(5)
-
+time.sleep(2)
+########################################################################################################################
+# Contest_sheet_(SIMPLER DATA)
 
 def chunked(iterable, size):
     return [iterable[i:i+size] for i in range(0, len(iterable), size)]
@@ -77,11 +78,30 @@ data11 = pd.DataFrame(data)
 data11.columns = data11.iloc[0]
 data11 = data11.drop(data11.index[0]).reset_index(drop=True)
 data11=data11.replace(np.nan,'')
-data11
+
 
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1KYSg23PXx0UlcPLEva545GU_41y3flsEmoD5oj2mwlw/edit?pli=1&gid=0#gid=0').worksheet('Simpler_data')
 ws.batch_clear(['A1:AE'])
 gd.set_with_dataframe(ws,data11,resize=False,row=1,col=1)  
+
+########################################################################################################################
+# Contest_sheet_(Form Response4)
+
+sheet_url11 = 'https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdzZY_wbwDLwzfjVLyoUmLvDA/edit?gid=1960642873#gid=1960642873'
+sheet = gc.open_by_url(sheet_url11)
+worksheet = sheet.worksheet("Form Responses 4")
+cell_range11 = worksheet.range("A1:AJ")
+data = [[cell.value for cell in row] for row in chunked(cell_range11, 36)]
+data11 = pd.DataFrame(data)
+data11.columns = data11.iloc[0]
+data11 = data11.drop(data11.index[0]).reset_index(drop=True)
+data11=data11.replace(np.nan,'')
+data11
+
+ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1KYSg23PXx0UlcPLEva545GU_41y3flsEmoD5oj2mwlw/edit?pli=1&gid=1960642873#gid=1960642873').worksheet('Form Responses 4')
+ws.batch_clear(['A1:AJ'])
+gd.set_with_dataframe(ws,data11,resize=False,row=1,col=1)  
+###############################################################
 
 
 sheet_url = 'https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdzZY_wbwDLwzfjVLyoUmLvDA/edit?gid=599981802#gid=599981802'
