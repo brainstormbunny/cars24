@@ -102,8 +102,6 @@ ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1KYSg23PXx0UlcPLEva545
 ws.batch_clear(['A1:AJ'])
 gd.set_with_dataframe(ws,data11,resize=False,row=1,col=1)  
 ###############################################################
-
-
 sheet_url = 'https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdzZY_wbwDLwzfjVLyoUmLvDA/edit?gid=599981802#gid=599981802'
 sheet = gc.open_by_url(sheet_url)
 worksheet = sheet.worksheet("Report_SM/RSM")
@@ -223,7 +221,7 @@ secret_key=os.environ['secret_key']
 slack_token = secret_key
 client = WebClient(token=slack_token)
 
-channel=['C05RG6NCMCK']
+channel=['C07V24TDK7T']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -360,7 +358,7 @@ secret_key=os.environ['secret_key']
 slack_token = secret_key
 client = WebClient(token=slack_token)
 
-channel=['C05RG6NCMCK']
+channel=['C07V24TDK7T']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -498,7 +496,7 @@ secret_key=os.environ['secret_key']
 slack_token = secret_key
 client = WebClient(token=slack_token)
 
-channel=['C05RG6NCMCK']    
+channel=['C07V24TDK7T']    
 
 for i  in channel:
     image_path = png_file_path
@@ -639,7 +637,7 @@ secret_key=os.environ['secret_key']
 slack_token = secret_key
 client = WebClient(token=slack_token)
 
-channel=['C05RG6NCMCK']    
+channel=['C07V24TDK7T']    
 
 
 for i  in channel:
