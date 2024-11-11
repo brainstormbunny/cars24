@@ -101,6 +101,8 @@ data11
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1KYSg23PXx0UlcPLEva545GU_41y3flsEmoD5oj2mwlw/edit?pli=1&gid=1960642873#gid=1960642873').worksheet('Form Responses 4')
 ws.batch_clear(['A1:AJ'])
 gd.set_with_dataframe(ws,data11,resize=False,row=1,col=1)  
+sys.exit()
+
 ###############################################################
 sheet_url = 'https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdzZY_wbwDLwzfjVLyoUmLvDA/edit?gid=599981802#gid=599981802'
 sheet = gc.open_by_url(sheet_url)
