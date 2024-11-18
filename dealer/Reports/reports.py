@@ -773,7 +773,7 @@ for i  in channel:
 sheet_url = 'https://docs.google.com/spreadsheets/d/1KrdkdLgnmF0KFQlidZnwn9-VoiHfvgew4ejhhSj9vSs/edit?gid=0#gid=0'
 sheet = gc.open_by_url(sheet_url)
 worksheet = sheet.worksheet("RC Format")
-cell_range8 = worksheet.range("B4:K13")
+cell_range8 = worksheet.range("B17:K33")
 data8 = [[cell.value for cell in row] for row in chunked(cell_range8, 10)]
 data8 = pd.DataFrame(data8)
 data8.columns = data8.iloc[0]
@@ -871,7 +871,7 @@ def html_to_png(html_file, output_file):
     
     time.sleep(2) 
     
-    driver.set_window_size(600, 700)
+    driver.set_window_size(800, 900)
     
     driver.save_screenshot(output_file)
     
@@ -1238,10 +1238,10 @@ html_template = f"""
 </head>
 <body style="display: inline-flexbox; align-content: center;">
     <div id="firstdiv" style="text-align: center; background-color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: auto;">
-        <h3>Unnati DCF Dashboard</h3>
+        <h3>Pmaxx Dashboard</h3>
     </div>
     <div class="city" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: inline-flexbox; align-content: center;">
-        <h4>Unnati:</h4>
+        <h4>Pmaxx:</h4>
         {html_table12}
     </div>
    
@@ -1272,3 +1272,26 @@ if __name__ == "__main__":
     html_file_path = 'pmax.html'
     png_file_path = 'pmax.png'
     html_to_png(html_file_path, png_file_path)
+
+
+
+# channel=['C06HR7PBTHP']
+# for i  in channel:
+#     image_path = png_file_path
+#     channel=i
+#     try:
+#         response = client.files_upload(
+#             channels=channel,
+#             file=image_path,
+#             title=f'''Report_
+#             ''',
+#             initial_comment=f'''            '''
+#         )
+
+#         if response['ok']:
+#             print("Image sent successfully!")
+#         else:
+#             print("Failed to send image:", response['error'])
+
+#     except SlackApiError as e:
+#         print(f"Error sending image: {e.response['error']}")

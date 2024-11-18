@@ -1,0 +1,6 @@
+gspread-dataframe
+pandas
+gspread
+oauth2client
+numpy
+times
