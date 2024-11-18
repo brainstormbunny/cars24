@@ -66,6 +66,8 @@ md_dd=md[['LEAD_ID','REGISTRATION_NUMBER','SALE_CONFIRMED_DATE','Mapping_Date']]
 md=md[['REGISTRATION_NUMBER','SALE_CONFIRMED_DATE']]
 md = md.drop_duplicates()
 md['check']='a'
+md['REGISTRATION_NUMBER']=md['REGISTRATION_NUMBER'].astype(str)
+data['REGISTRATION_NUMBER']=data['REGISTRATION_NUMBER'].astype(str)
 
 data1=data.merge(md,on=['REGISTRATION_NUMBER','SALE_CONFIRMED_DATE'],how='left')
 data1['check']=data1['check'].replace(np.nan,'b')
@@ -80,6 +82,8 @@ gs1['CURRENT_CAR_STATUS']=''
 gs1['AGING_YEAR_FROM_REGISTRATION_YEAR']=''
 gs1['REGISTRATION_YEAR']=''
 gs1['FLAG']=''
+gs1['REGISTRATION_NUMBER']=gs1['REGISTRATION_NUMBER'].astype(str)
+
 gs1=gs1.merge(md,on='REGISTRATION_NUMBER',how='left')
 
 gs1=gs1.replace(np.nan,'b')
