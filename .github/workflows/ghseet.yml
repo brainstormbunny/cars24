@@ -23,6 +23,6 @@ jobs:
           pip install -r dealer/gsheet/requirements.txt
 
       - name: Run script
-        run: python dealer/gsheet/monthly_updated_sheet.py
+        run: python "dealer/gsheet/monthly_updated_sheet.py"
         env:
           secret_key: ${{ secrets.TOKEN1 }}
