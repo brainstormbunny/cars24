@@ -21,19 +21,15 @@ from selenium.webdriver.chrome.options import Options
 warnings.filterwarnings("ignore")
 import gspread
 import gspread_dataframe as gd
-
 def chunked(iterable, size):
     return [iterable[i:i+size] for i in range(0, len(iterable), size)]
 gsheet_auth = 'sahil_creds.json'
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(gsheet_auth, scope)
 gc = gspread.authorize(credentials)
-
 secret_key=os.environ['secret_key']
 slack_token = secret_key
 client = WebClient(token=slack_token)
-
-
 sheet_url = 'https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdzZY_wbwDLwzfjVLyoUmLvDA/edit?gid=871108598#gid=871108598'
 sheet = gc.open_by_url(sheet_url)
 worksheet = sheet.worksheet("Slack Report")
@@ -43,7 +39,6 @@ data1 = pd.DataFrame(data)
 data1.columns = data1.iloc[0]
 data1 = data1.drop(data1.index[0]).reset_index(drop=True)
 data1=data1.replace(np.nan,'')
-
 html_table = data1.to_html(escape=False, index=False)
 
 html_template = f"""
@@ -141,7 +136,7 @@ if __name__ == "__main__":
     html_to_png(html_file_path, png_file_path)
 
 
-channel=['C06HR7PBTHP']
+channel=['C08127CHCTZ']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -286,7 +281,7 @@ if __name__ == "__main__":
     png_file_path = 'mob.png'
     html_to_png(html_file_path, png_file_path)
 
-channel=['C06HR7PBTHP']
+channel=['C08127CHCTZ']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -417,7 +412,7 @@ if __name__ == "__main__":
     html_file_path = 'chm.html'
     png_file_path = 'chm.png'
     html_to_png(html_file_path, png_file_path)
-channel=['C06HR7PBTHP']
+channel=['C08127CHCTZ']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -565,7 +560,7 @@ if __name__ == "__main__":
     png_file_path = 'Delivery_Confirmation.png'
     html_to_png(html_file_path, png_file_path)
 
-channel=['C06HR7PBTHP']
+channel=['C08127CHCTZ']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -734,7 +729,7 @@ data7
 #     html_file_path = 'tnc.html'
 #     png_file_path = 'tnc.png'
 #     html_to_png(html_file_path, png_file_path)
-# channel=['C06HR7PBTHP']
+# channel=['C08127CHCTZ']
 # for i  in channel:
 #     image_path = png_file_path
 #     channel=i
@@ -882,7 +877,7 @@ if __name__ == "__main__":
     html_to_png(html_file_path, png_file_path)
 
 
-channel=['C06HR7PBTHP']
+channel=['C08127CHCTZ']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -1012,7 +1007,7 @@ if __name__ == "__main__":
     png_file_path = 'ew.png'
     html_to_png(html_file_path, png_file_path)
 
-channel=['C06HR7PBTHP']
+channel=['C08127CHCTZ']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -1142,7 +1137,7 @@ if __name__ == "__main__":
     html_to_png(html_file_path, png_file_path)
 
 
-channel=['C06HR7PBTHP']
+channel=['C08127CHCTZ']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -1273,7 +1268,7 @@ if __name__ == "__main__":
     html_to_png(html_file_path, png_file_path)
 
 
-# channel=['C06HR7PBTHP']
+# channel=['C08127CHCTZ']
 # for i  in channel:
 #     image_path = png_file_path
 #     channel=i
