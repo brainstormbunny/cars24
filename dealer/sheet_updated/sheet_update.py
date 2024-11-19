@@ -13,11 +13,7 @@ import sys
 import gspread
 import warnings
 import sys
-import imgkit
-from slack_sdk import WebClient
-from slack_sdk.errors import SlackApiError
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+
 warnings.filterwarnings("ignore")
 import gspread
 import gspread_dataframe as gd
