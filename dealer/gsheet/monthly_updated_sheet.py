@@ -380,16 +380,13 @@ for i  in channel:
         print(f"Error sending image: {e.response['error']}")
 
 time.sleep(2)
-cell_range3 = worksheet.range("C10:K28")
+cell_range3 = worksheet.range("C10:K29")
 data = [[cell.value for cell in row] for row in chunked(cell_range3, 9)]
 data3 = pd.DataFrame(data)
 data3.columns = data3.iloc[0]
 data3 = data3.drop(data3.index[0]).reset_index(drop=True)
 data3=data3.replace(np.nan,'')
-
-
 html_table3 = data3.to_html(escape=False, index=False)
-
 html_template = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -520,17 +517,13 @@ for i  in channel:
 
 time.sleep(2)
 
-cell_range4 = worksheet.range("M10:U28")
+cell_range4 = worksheet.range("M10:U29")
 data = [[cell.value for cell in row] for row in chunked(cell_range4, 9)]
 data4 = pd.DataFrame(data)
 data4.columns = data4.iloc[0]
 data4 = data4.drop(data4.index[0]).reset_index(drop=True)
 data4=data4.replace(np.nan,'')
-
-
-
 html_table4 = data4.to_html(escape=False, index=False)
-
 html_template = f"""
 <!DOCTYPE html>
 <html lang="en">
