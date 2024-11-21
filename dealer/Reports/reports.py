@@ -767,140 +767,142 @@ data7
 # data8=data8.replace(np.nan,'')
 # data8
 
+
+#########################################################################
 #RC 
-sheet_url = 'https://docs.google.com/spreadsheets/d/1KrdkdLgnmF0KFQlidZnwn9-VoiHfvgew4ejhhSj9vSs/edit?gid=0#gid=0'
-sheet = gc.open_by_url(sheet_url)
-worksheet = sheet.worksheet("RC Format")
-cell_range8 = worksheet.range("B17:K33")
-data8 = [[cell.value for cell in row] for row in chunked(cell_range8, 10)]
-data8 = pd.DataFrame(data8)
-data8.columns = data8.iloc[0]
-data8 = data8.drop(data8.index[0]).reset_index(drop=True)
-data8=data8.replace(np.nan,'')
-data8    
+# sheet_url = 'https://docs.google.com/spreadsheets/d/1KrdkdLgnmF0KFQlidZnwn9-VoiHfvgew4ejhhSj9vSs/edit?gid=0#gid=0'
+# sheet = gc.open_by_url(sheet_url)
+# worksheet = sheet.worksheet("RC Format")
+# cell_range8 = worksheet.range("B17:K33")
+# data8 = [[cell.value for cell in row] for row in chunked(cell_range8, 10)]
+# data8 = pd.DataFrame(data8)
+# data8.columns = data8.iloc[0]
+# data8 = data8.drop(data8.index[0]).reset_index(drop=True)
+# data8=data8.replace(np.nan,'')
+# data8    
 
-html_table8 = data8.to_html(escape=False, index=False)
+# html_table8 = data8.to_html(escape=False, index=False)
 
-html_template = f"""
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {{
-            width: fit-content;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            align-content: center;
-        }}
+# html_template = f"""
+# <!DOCTYPE html>
+# <html lang="en">
+# <head>
+#     <meta charset="UTF-8">
+#     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+#     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#     <style>
+#         body {{
+#             width: fit-content;
+#             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+#             align-content: center;
+#         }}
 
-        table, th, td {{
-            border: 1px solid rgb(5, 9, 30);
-            border-collapse: collapse;
-            text-align: center;
-            text-indent: 5px;
-        }}
+#         table, th, td {{
+#             border: 1px solid rgb(5, 9, 30);
+#             border-collapse: collapse;
+#             text-align: center;
+#             text-indent: 5px;
+#         }}
 
-        td {{
-            max-height: fit-content;
-            max-width: fit-content;
-        }}
+#         td {{
+#             max-height: fit-content;
+#             max-width: fit-content;
+#         }}
 
-        #firstdiv {{
-            border-top: 2px solid rgb(76, 104, 65);
-            border-left: 2px solid rgb(76, 104, 65);
-            border-right: 2px solid rgb(76, 104, 65);
-            background-color: rgb(50, 91, 168);
-            background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
-            padding-bottom: 2px;
-            color: white;
-        }}
+#         #firstdiv {{
+#             border-top: 2px solid rgb(76, 104, 65);
+#             border-left: 2px solid rgb(76, 104, 65);
+#             border-right: 2px solid rgb(76, 104, 65);
+#             background-color: rgb(50, 91, 168);
+#             background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+#             padding-bottom: 2px;
+#             color: white;
+#         }}
 
-        h3 {{
-            font-size: 35px;
-            margin-top: 10px;
-        }}
+#         h3 {{
+#             font-size: 35px;
+#             margin-top: 10px;
+#         }}
 
-        h4 {{
-            background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
-            text-align: left;
-            padding-left: 10px;
-            color: #ffffff;
-            background-color: rgb(5, 9, 30);
-            border: 2px solid rgb(5, 9, 30);
-        }}
+#         h4 {{
+#             background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+#             text-align: left;
+#             padding-left: 10px;
+#             color: #ffffff;
+#             background-color: rgb(5, 9, 30);
+#             border: 2px solid rgb(5, 9, 30);
+#         }}
 
-        th {{
-            background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
-            color: #ffffff;
-        }}
-    </style>
-</head>
-<body style="display: inline-flexbox; align-content: center;">
-    <div id="firstdiv" style="text-align: center; background-color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: auto;">
-        <h3>Dealer and DSA RTO Pendency	 </h3>
-    </div>
-    <div class="city" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: inline-flexbox; align-content: center;">
-        <h4>Dealer and DSA RTO Pendency:</h4>
-        {html_table8}
-    </div>
+#         th {{
+#             background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+#             color: #ffffff;
+#         }}
+#     </style>
+# </head>
+# <body style="display: inline-flexbox; align-content: center;">
+#     <div id="firstdiv" style="text-align: center; background-color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: auto;">
+#         <h3>Dealer and DSA RTO Pendency	 </h3>
+#     </div>
+#     <div class="city" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: inline-flexbox; align-content: center;">
+#         <h4>Dealer and DSA RTO Pendency:</h4>
+#         {html_table8}
+#     </div>
    
-</body>
-</html>
-"""
+# </body>
+# </html>
+# """
 
-html_file_path = 'Rc.html'
+# html_file_path = 'Rc.html'
 
-# Save the HTML content to a file
-with open(html_file_path, 'w') as file:
-    file.write(html_template)
+# # Save the HTML content to a file
+# with open(html_file_path, 'w') as file:
+#     file.write(html_template)
 
-print(f"HTML file saved successfully at: {html_file_path}")
+# print(f"HTML file saved successfully at: {html_file_path}")
 
 
-def html_to_png(html_file, output_file):
-    # Configure headless Chrome
-    options = Options()
-    options.add_argument("--headless")  # Run in headless mode, i.e., without opening a browser window
-    driver = webdriver.Chrome(options=options)
+# def html_to_png(html_file, output_file):
+#     # Configure headless Chrome
+#     options = Options()
+#     options.add_argument("--headless")  # Run in headless mode, i.e., without opening a browser window
+#     driver = webdriver.Chrome(options=options)
     
-    driver.get("file:///" + os.path.abspath(html_file))
+#     driver.get("file:///" + os.path.abspath(html_file))
     
-    time.sleep(2) 
+#     time.sleep(2) 
     
-    driver.set_window_size(800, 900)
+#     driver.set_window_size(800, 900)
     
-    driver.save_screenshot(output_file)
+#     driver.save_screenshot(output_file)
     
-    driver.quit()
+#     driver.quit()
 
-if __name__ == "__main__":
-    html_file_path = 'Rc.html'
-    png_file_path = 'Rc.png'
-    html_to_png(html_file_path, png_file_path)
+# if __name__ == "__main__":
+#     html_file_path = 'Rc.html'
+#     png_file_path = 'Rc.png'
+#     html_to_png(html_file_path, png_file_path)
 
 
-channel=['C08127CHCTZ']
-for i  in channel:
-    image_path = png_file_path
-    channel=i
-    try:
-        response = client.files_upload(
-            channels=channel,
-            file=image_path,
-            title=f'''Report_
-            ''',
-            initial_comment=f'''            '''
-        )
+# channel=['C08127CHCTZ']
+# for i  in channel:
+#     image_path = png_file_path
+#     channel=i
+#     try:
+#         response = client.files_upload(
+#             channels=channel,
+#             file=image_path,
+#             title=f'''Report_
+#             ''',
+#             initial_comment=f'''            '''
+#         )
 
-        if response['ok']:
-            print("Image sent successfully!")
-        else:
-            print("Failed to send image:", response['error'])
+#         if response['ok']:
+#             print("Image sent successfully!")
+#         else:
+#             print("Failed to send image:", response['error'])
 
-    except SlackApiError as e:
-        print(f"Error sending image: {e.response['error']}")
+#     except SlackApiError as e:
+#         print(f"Error sending image: {e.response['error']}")
 
 
 
@@ -908,8 +910,8 @@ for i  in channel:
 sheet_url = 'https://docs.google.com/spreadsheets/d/1YAt0BAcF0_61UHsgu8FEBNaKnJr09JPEYZOqoFjl6kg/edit?gid=1368228566#gid=1368228566'
 sheet = gc.open_by_url(sheet_url)
 worksheet = sheet.worksheet("EW Tracking")
-cell_range10 = worksheet.range("C4:L20")
-data10 = [[cell.value for cell in row] for row in chunked(cell_range10, 10)]
+cell_range10 = worksheet.range("C4:J20")
+data10 = [[cell.value for cell in row] for row in chunked(cell_range10, 8)]
 data10 = pd.DataFrame(data10)
 data10.columns = data10.iloc[0]
 data10 = data10.drop(data10.index[0]).reset_index(drop=True)
@@ -1002,7 +1004,7 @@ def html_to_png(html_file, output_file):
     driver = webdriver.Chrome(options=options)
     driver.get("file:///" + os.path.abspath(html_file))
     time.sleep(2) 
-    driver.set_window_size(900, 780)
+    driver.set_window_size(950, 780)
     driver.save_screenshot(output_file)
     driver.quit()
 
@@ -1043,10 +1045,7 @@ data11 = pd.DataFrame(data11)
 data11.columns = data11.iloc[0]
 data11 = data11.drop(data11.index[0]).reset_index(drop=True)
 data11=data11.replace(np.nan,'')
-
-
 html_table11 = data11.to_html(escape=False, index=False)
-
 html_template = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -1162,21 +1161,146 @@ for i  in channel:
     except SlackApiError as e:
         print(f"Error sending image: {e.response['error']}")
 
-
-
 #Partner_Maxx
-sheet_url = 'https://docs.google.com/spreadsheets/d/1EMAzVgs-MDqClr3Xqgdu3HxkxEUi-RJ4yDUqffLhkPo/edit?gid=1172246457#gid=1172246457'
+# sheet_url = 'https://docs.google.com/spreadsheets/d/1EMAzVgs-MDqClr3Xqgdu3HxkxEUi-RJ4yDUqffLhkPo/edit?gid=1172246457#gid=1172246457'
+# sheet = gc.open_by_url(sheet_url)
+# worksheet = sheet.worksheet("OVERALL")
+# cell_range12 = worksheet.range("A3:P17")
+# data12 = [[cell.value for cell in row] for row in chunked(cell_range12, 16)]
+# data12 = pd.DataFrame(data12)
+# data12.columns = data12.iloc[0]
+# data12 = data12.drop(data12.index[0]).reset_index(drop=True)
+# data12=data12.replace(np.nan,'')
+
+
+# html_table12 = data12.to_html(escape=False, index=False)
+
+# html_template = f"""
+# <!DOCTYPE html>
+# <html lang="en">
+# <head>
+#     <meta charset="UTF-8">
+#     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+#     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#     <style>
+#         body {{
+#             width: fit-content;
+#             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+#             align-content: center;
+#         }}
+
+#         table, th, td {{
+#             border: 1px solid rgb(5, 9, 30);
+#             border-collapse: collapse;
+#             text-align: center;
+#             text-indent: 5px;
+#         }}
+
+#         td {{
+#             max-height: fit-content;
+#             max-width: fit-content;
+#         }}
+
+#         #firstdiv {{
+#             border-top: 2px solid rgb(76, 104, 65);
+#             border-left: 2px solid rgb(76, 104, 65);
+#             border-right: 2px solid rgb(76, 104, 65);
+#             background-color: rgb(50, 91, 168);
+#             background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+#             padding-bottom: 2px;
+#             color: white;
+#         }}
+
+#         h3 {{
+#             font-size: 35px;
+#             margin-top: 10px;
+#         }}
+
+#         h4 {{
+#             background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+#             text-align: left;
+#             padding-left: 10px;
+#             color: #ffffff;
+#             background-color: rgb(5, 9, 30);
+#             border: 2px solid rgb(5, 9, 30);
+#         }}
+
+#         th {{
+#             background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+#             color: #ffffff;
+#         }}
+#     </style>
+# </head>
+# <body style="display: inline-flexbox; align-content: center;">
+#     <div id="firstdiv" style="text-align: center; background-color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: auto;">
+#         <h3>Pmaxx Dashboard</h3>
+#     </div>
+#     <div class="city" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: inline-flexbox; align-content: center;">
+#         <h4>Pmaxx:</h4>
+#         {html_table12}
+#     </div>
+   
+# </body>
+# </html>
+# """
+
+# html_file_path = 'pmax.html'
+
+# # Save the HTML content to a file
+# with open(html_file_path, 'w') as file:
+#     file.write(html_template)
+
+# print(f"HTML file saved successfully at: {html_file_path}")
+
+
+# def html_to_png(html_file, output_file):
+#     # Configure headless Chrome
+#     options = Options()
+#     options.add_argument("--headless")  # Run in headless mode, i.e., without opening a browser window
+#     driver = webdriver.Chrome(options=options)
+#     driver.get("file:///" + os.path.abspath(html_file))
+#     time.sleep(2) 
+#     driver.set_window_size(1200, 700)
+#     driver.save_screenshot(output_file)
+#     driver.quit()
+# if __name__ == "__main__":
+#     html_file_path = 'pmax.html'
+#     png_file_path = 'pmax.png'
+#     html_to_png(html_file_path, png_file_path)
+
+
+# channel=['C08127CHCTZ']
+# for i  in channel:
+#     image_path = png_file_path
+#     channel=i
+#     try:
+#         response = client.files_upload(
+#             channels=channel,
+#             file=image_path,
+#             title=f'''Report_
+#             ''',
+#             initial_comment=f'''            '''
+#         )
+
+#         if response['ok']:
+#             print("Image sent successfully!")
+#         else:
+#             print("Failed to send image:", response['error'])
+
+#     except SlackApiError as e:
+#         print(f"Error sending image: {e.response['error']}")
+
+
+sheet_url = 'https://docs.google.com/spreadsheets/d/144xWGvX7ipabfIkQUvIdzZY_wbwDLwzfjVLyoUmLvDA/edit?gid=871108598#gid=871108598'
 sheet = gc.open_by_url(sheet_url)
-worksheet = sheet.worksheet("OVERALL")
-cell_range12 = worksheet.range("A3:P17")
-data12 = [[cell.value for cell in row] for row in chunked(cell_range12, 16)]
-data12 = pd.DataFrame(data12)
-data12.columns = data12.iloc[0]
-data12 = data12.drop(data12.index[0]).reset_index(drop=True)
-data12=data12.replace(np.nan,'')
-
-
-html_table12 = data12.to_html(escape=False, index=False)
+worksheet = sheet.worksheet("Slack Report")
+cell_range11 = worksheet.range("AF3:AK10")
+data11 = [[cell.value for cell in row] for row in chunked(cell_range11, 6)]
+data11 = pd.DataFrame(data11)
+data11.columns = data11.iloc[0]
+data11 = data11.drop(data11.index[0]).reset_index(drop=True)
+data11=data11.replace(np.nan,'')
+html_table11 = data11.to_html(escape=False, index=False)
 
 html_template = f"""
 <!DOCTYPE html>
@@ -1236,18 +1360,18 @@ html_template = f"""
 </head>
 <body style="display: inline-flexbox; align-content: center;">
     <div id="firstdiv" style="text-align: center; background-color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: auto;">
-        <h3>Pmaxx Dashboard</h3>
+        <h3>New City Report </h3>
     </div>
     <div class="city" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: inline-flexbox; align-content: center;">
-        <h4>Pmaxx:</h4>
-        {html_table12}
+        <h4>New City Wise Report:</h4>
+        {html_table11}
     </div>
    
 </body>
 </html>
 """
 
-html_file_path = 'pmax.html'
+html_file_path = 'C:/Users/35115/Desktop/report123.html'
 
 # Save the HTML content to a file
 with open(html_file_path, 'w') as file:
@@ -1255,40 +1379,48 @@ with open(html_file_path, 'w') as file:
 
 print(f"HTML file saved successfully at: {html_file_path}")
 
-
 def html_to_png(html_file, output_file):
     # Configure headless Chrome
     options = Options()
     options.add_argument("--headless")  # Run in headless mode, i.e., without opening a browser window
     driver = webdriver.Chrome(options=options)
+    
     driver.get("file:///" + os.path.abspath(html_file))
+    
     time.sleep(2) 
-    driver.set_window_size(1200, 700)
+    
+    driver.set_window_size(220, 600)
+    
     driver.save_screenshot(output_file)
+    
     driver.quit()
+
 if __name__ == "__main__":
-    html_file_path = 'pmax.html'
-    png_file_path = 'pmax.png'
+    html_file_path = 'report123.html'
+    png_file_path = 'report123.png'
+
     html_to_png(html_file_path, png_file_path)
 
 
-# channel=['C08127CHCTZ']
-# for i  in channel:
-#     image_path = png_file_path
-#     channel=i
-#     try:
-#         response = client.files_upload(
-#             channels=channel,
-#             file=image_path,
-#             title=f'''Report_
-#             ''',
-#             initial_comment=f'''            '''
-#         )
+channel=['C08127CHCTZ']
+for i  in channel:
+    image_path = png_file_path
+    channel=i
+    try:
+        response = client.files_upload(
+            channels=channel,
+            file=image_path,
+            title=f'''Report_
+            ''',
+            initial_comment=f'''            '''
+        )
 
-#         if response['ok']:
-#             print("Image sent successfully!")
-#         else:
-#             print("Failed to send image:", response['error'])
+        if response['ok']:
+            print("Image sent successfully!")
+        else:
+            print("Failed to send image:", response['error'])
 
-#     except SlackApiError as e:
-#         print(f"Error sending image: {e.response['error']}")
+    except SlackApiError as e:
+        print(f"Error sending image: {e.response['error']}")
+
+    
