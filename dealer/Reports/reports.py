@@ -1371,7 +1371,7 @@ html_template = f"""
 </html>
 """
 
-html_file_path = 'C:/Users/35115/Desktop/report123.html'
+html_file_path = 'report123.html'
 
 # Save the HTML content to a file
 with open(html_file_path, 'w') as file:
