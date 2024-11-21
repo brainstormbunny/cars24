@@ -257,7 +257,7 @@ html_template = f"""
 </html>
 """
 
-html_file_path = 'mob.html'
+html_file_path = 'mob11.html'
 
 # Save the HTML content to a file
 with open(html_file_path, 'w') as file:
@@ -282,8 +282,8 @@ def html_to_png(html_file, output_file):
     driver.quit()
 
 if __name__ == "__main__":
-    html_file_path = 'mob.html'
-    png_file_path = 'mob.png'
+    html_file_path = 'mob11.html'
+    png_file_path = 'mob11.png'
     html_to_png(html_file_path, png_file_path)
 
 channel=['C06HR7PBTHP']
@@ -389,7 +389,7 @@ html_template = f"""
 </html>
 """
 
-html_file_path = 'chm.html'
+html_file_path = 'chm11.html'
 
 # Save the HTML content to a file
 with open(html_file_path, 'w') as file:
@@ -414,8 +414,8 @@ def html_to_png(html_file, output_file):
     driver.quit()
 
 if __name__ == "__main__":
-    html_file_path = 'chm.html'
-    png_file_path = 'chm.png'
+    html_file_path = 'chm11.html'
+    png_file_path = 'chm11.png'
     html_to_png(html_file_path, png_file_path)
 channel=['C06HR7PBTHP']
 for i  in channel:
