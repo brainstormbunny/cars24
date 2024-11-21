@@ -1389,7 +1389,7 @@ def html_to_png(html_file, output_file):
     
     time.sleep(2) 
     
-    driver.set_window_size(220, 600)
+    driver.set_window_size(400, 600)
     
     driver.save_screenshot(output_file)
     
