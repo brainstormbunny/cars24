@@ -767,7 +767,6 @@ data7
 # data8=data8.replace(np.nan,'')
 # data8
 
-
 #RC 
 sheet_url = 'https://docs.google.com/spreadsheets/d/1KrdkdLgnmF0KFQlidZnwn9-VoiHfvgew4ejhhSj9vSs/edit?gid=0#gid=0'
 sheet = gc.open_by_url(sheet_url)

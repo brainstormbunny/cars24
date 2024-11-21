@@ -13,7 +13,6 @@ import sys
 import gspread
 import warnings
 import sys
-
 warnings.filterwarnings("ignore")
 import gspread
 import gspread_dataframe as gd

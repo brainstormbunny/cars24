@@ -38,6 +38,7 @@ def chunked(iterable, size):
 
 #Monthly_Updated_Sheet - Form_Response4
 
+
 source_ws = gc.open_by_url('https://docs.google.com/spreadsheets/d/1tZL5V-w8gu6SMRCc6Hzm0IkkOfVXjjZ55ltaMdngOtg/edit?gid=328438549#gid=328438549').worksheet('Monthly_sheet')
 dff = pd.DataFrame(source_ws.get_all_records())
 print(dff)
@@ -475,7 +476,7 @@ def html_to_png(html_file, output_file):
     
     time.sleep(2) 
     
-    driver.set_window_size(800, 820)
+    driver.set_window_size(950, 820)
     
     driver.save_screenshot(output_file)
     
@@ -613,7 +614,7 @@ def html_to_png(html_file, output_file):
     
     time.sleep(2) 
     
-    driver.set_window_size(800, 820)
+    driver.set_window_size(950, 820)
     
     driver.save_screenshot(output_file)
     
