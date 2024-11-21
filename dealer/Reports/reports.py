@@ -141,7 +141,7 @@ client = WebClient(token=slack_token)
 #     html_to_png(html_file_path, png_file_path)
 
 
-# channel=['C06HR7PBTHP']
+# channel=['C08127CHCTZ']
 # for i  in channel:
 #     image_path = png_file_path
 #     channel=i
@@ -286,7 +286,7 @@ if __name__ == "__main__":
     png_file_path = 'mob.png'
     html_to_png(html_file_path, png_file_path)
 
-channel=['C06HR7PBTHP']
+channel=['C08127CHCTZ']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -417,7 +417,7 @@ if __name__ == "__main__":
     html_file_path = 'chm.html'
     png_file_path = 'chm.png'
     html_to_png(html_file_path, png_file_path)
-channel=['C06HR7PBTHP']
+channel=['C08127CHCTZ']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -565,7 +565,7 @@ if __name__ == "__main__":
     png_file_path = 'Delivery_Confirmation.png'
     html_to_png(html_file_path, png_file_path)
 
-channel=['C06HR7PBTHP']
+channel=['C08127CHCTZ']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -734,7 +734,7 @@ data7
 #     html_file_path = 'tnc.html'
 #     png_file_path = 'tnc.png'
 #     html_to_png(html_file_path, png_file_path)
-# channel=['C06HR7PBTHP']
+# channel=['C08127CHCTZ']
 # for i  in channel:
 #     image_path = png_file_path
 #     channel=i
@@ -882,7 +882,7 @@ if __name__ == "__main__":
     html_to_png(html_file_path, png_file_path)
 
 
-channel=['C06HR7PBTHP']
+channel=['C08127CHCTZ']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -1012,7 +1012,7 @@ if __name__ == "__main__":
     png_file_path = 'ew.png'
     html_to_png(html_file_path, png_file_path)
 
-channel=['C06HR7PBTHP']
+channel=['C08127CHCTZ']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -1142,7 +1142,7 @@ if __name__ == "__main__":
     html_to_png(html_file_path, png_file_path)
 
 
-channel=['C06HR7PBTHP']
+channel=['C08127CHCTZ']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -1273,7 +1273,7 @@ if __name__ == "__main__":
     html_to_png(html_file_path, png_file_path)
 
 
-# channel=['C06HR7PBTHP']
+# channel=['C08127CHCTZ']
 # for i  in channel:
 #     image_path = png_file_path
 #     channel=i
