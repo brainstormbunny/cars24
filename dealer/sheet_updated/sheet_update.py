@@ -31,7 +31,7 @@ def chunked(iterable, size):
     return [iterable[i:i+size] for i in range(0, len(iterable), size)]
 ########################################################################################################################
 
-#Monthly_Updated_Sheet - Form_Response4
+# Monthly_Updated_Sheet - Form_Response4
 
 source_ws = gc.open_by_url('https://docs.google.com/spreadsheets/d/1tZL5V-w8gu6SMRCc6Hzm0IkkOfVXjjZ55ltaMdngOtg/edit?gid=328438549#gid=328438549').worksheet('Monthly_sheet')
 dff = pd.DataFrame(source_ws.get_all_records())
@@ -95,3 +95,6 @@ data11
 ws=gc.open_by_url('https://docs.google.com/spreadsheets/d/1KYSg23PXx0UlcPLEva545GU_41y3flsEmoD5oj2mwlw/edit?pli=1&gid=1960642873#gid=1960642873').worksheet('Form Responses 4')
 ws.batch_clear(['A1:AJ'])
 gd.set_with_dataframe(ws,data11,resize=False,row=1,col=1)  
+
+
+#########################################################################################
