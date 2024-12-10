@@ -579,21 +579,21 @@ and FROM_LOCATION <> '_'
 LEFT JOIN (Select LEAD_ID,MAKE,MODEL,FUEL_TYPE FROM PC_STITCH_DB.ADMIN_PANEL_PROD_DEALERENGINE_PROD.ORDERS) ORDERS ON ORDERS.LEAD_ID = TF.APPOINTMENTID
 LEFT JOIN (Select APPT_ID,C24_QUOTE from "PC_STITCH_DB"."FIVETRAN1_BI"."SALES_TRANSACTIONS") S ON ORDERS.LEAD_ID = S.APPT_ID )
 where TRIP_STATUS not in ('Cancelled','Denied') and LEG_TYPE in ('Last_Mile','Middle_Mile','First_Mile') 
-) where MONTH_NAME in ('Oct') 
+) where MONTH_NAME in ('Nov') 
 """   
 cur.execute(query)
 rows = cur.fetchall()
 df = pd.DataFrame(rows, columns=[desc[0] for desc in cur.description])
+df=df.to_csv('pnl1.csv')
+# spreadsheet = gc.open_by_key('1FrioxnnKCmLeqDTXKqqtt7i0VsQaF_wAjcCzgyebVZY')
 
-spreadsheet = gc.open_by_key('1FrioxnnKCmLeqDTXKqqtt7i0VsQaF_wAjcCzgyebVZY')
-
-# Select the worksheet and clear the range
-worksheet = spreadsheet.worksheet('Data1')
-worksheet.batch_clear(['A1:BV'])
+# # Select the worksheet and clear the range
+# worksheet = spreadsheet.worksheet('Data1')
+# worksheet.batch_clear(['A1:BV'])
 
 
-ws2=gc.open_by_url('https://docs.google.com/spreadsheets/d/1FrioxnnKCmLeqDTXKqqtt7i0VsQaF_wAjcCzgyebVZY/edit#gid=0').worksheet('Data1')
-gd.set_with_dataframe(ws2,df,resize=False,row=1,col=1)
+# ws2=gc.open_by_url('https://docs.google.com/spreadsheets/d/1FrioxnnKCmLeqDTXKqqtt7i0VsQaF_wAjcCzgyebVZY/edit#gid=0').worksheet('Data1')
+# gd.set_with_dataframe(ws2,df,resize=False,row=1,col=1)
 
 
 
@@ -780,7 +780,7 @@ LEFT JOIN (Select ORDERS.LEAD_ID,ORDERS.ORDER_ID,OPR2.IS_PROJECT_LOST_LEAD,
 CASE WHEN IS_PROJECT_LOST_LEAD = 1 THEN 1 ELSE 0 END AS IS_PLL_CASE
 from PC_STITCH_DB.ADMIN_PANEL_PROD_DEALERENGINE_PROD.ORDERS
 LEFT JOIN PC_STITCH_DB.ADMIN_PANEL_PROD_DEALERENGINE_PROD.ORDER_PURCHASE_REQUEST OPR2 ON OPR2.FK_ORDER_ID = ORDERS.ORDER_ID AND OPR2.STATUS = 3)PLL
-ON T4.LEAD_ID = PLL.LEAD_ID)FT) WHERE   MONTH_NAME  in ('Oct-2024')  and PARKING_REGION is not null
+ON T4.LEAD_ID = PLL.LEAD_ID)FT) WHERE   MONTH_NAME  in ('Nov-2024')  and PARKING_REGION is not null
 
 """
 
@@ -788,8 +788,9 @@ cur.execute(query)
 rows = cur.fetchall()
 df2 = pd.DataFrame(rows, columns=[desc[0] for desc in cur.description])
 
-ws2=gc.open_by_url('https://docs.google.com/spreadsheets/d/1qv6BVhMkdpBOXxx85shj5jSKSVWs2Tu79flEVp0m-B8/edit?gid=0#gid=0').worksheet('Pickup Data')
-gd.set_with_dataframe(ws2,df2,resize=True,row=1,col=1)  
+df2=df2.to_csv('pnl2.csv')
+# ws2=gc.open_by_url('https://docs.google.com/spreadsheets/d/1qv6BVhMkdpBOXxx85shj5jSKSVWs2Tu79flEVp0m-B8/edit?gid=0#gid=0').worksheet('Pickup Data')
+# gd.set_with_dataframe(ws2,df2,resize=True,row=1,col=1)  
 
 
 sql="""
@@ -1003,6 +1004,6 @@ LEFT JOIN PC_STITCH_DB.FIVETRAN1_BI.OPS_LOGISTICS ol on ol.lead_id = O.lead_id) 
 cur.execute(sql)
 rows = cur.fetchall()
 df3 = pd.DataFrame(rows, columns=[desc[0] for desc in cur.description])
-
-ws2=gc.open_by_url('https://docs.google.com/spreadsheets/d/1qv6BVhMkdpBOXxx85shj5jSKSVWs2Tu79flEVp0m-B8/edit?gid=0#gid=0').worksheet('CHD_raw_Data')
-gd.set_with_dataframe(ws2,df3,resize=True,row=1,col=1)  
+df3=df3.to_csv('pnl3.csv')
+# ws2=gc.open_by_url('https://docs.google.com/spreadsheets/d/1qv6BVhMkdpBOXxx85shj5jSKSVWs2Tu79flEVp0m-B8/edit?gid=0#gid=0').worksheet('CHD_raw_Data')
+# gd.set_with_dataframe(ws2,df3,resize=True,row=1,col=1)  
