@@ -141,7 +141,7 @@ client = WebClient(token=slack_token)
 #     html_to_png(html_file_path, png_file_path)
 
 
-# channel=['C07V24TDK7T']
+# channel=['C06HR7PBTHP']
 # for i  in channel:
 #     image_path = png_file_path
 #     channel=i
@@ -276,7 +276,7 @@ if __name__ == "__main__":
     png_file_path = 'overall_report.png'
     html_to_png(html_file_path, png_file_path)
 
-channel=['C07V24TDK7T']
+channel=['C06HR7PBTHP']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -411,7 +411,7 @@ if __name__ == "__main__":
     html_to_png(html_file_path, png_file_path)
 
 
-channel=['C07V24TDK7T']
+channel=['C06HR7PBTHP']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -545,7 +545,7 @@ if __name__ == "__main__":
     png_file_path = 'DSA.png'
     html_to_png(html_file_path, png_file_path)
 
-channel=['C07V24TDK7T']
+channel=['C06HR7PBTHP']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -680,7 +680,7 @@ if __name__ == "__main__":
     html_to_png(html_file_path, png_file_path)
 
 
-channel=['C07V24TDK7T']
+channel=['C06HR7PBTHP']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -826,7 +826,7 @@ if __name__ == "__main__":
     png_file_path = 'mob11.png'
     html_to_png(html_file_path, png_file_path)
 
-channel=['C07V24TDK7T']
+channel=['C06HR7PBTHP']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -957,7 +957,7 @@ if __name__ == "__main__":
     html_file_path = 'chm11.html'
     png_file_path = 'chm11.png'
     html_to_png(html_file_path, png_file_path)
-channel=['C07V24TDK7T']
+channel=['C06HR7PBTHP']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -1105,7 +1105,7 @@ if __name__ == "__main__":
     png_file_path = 'Delivery_Confirmation.png'
     html_to_png(html_file_path, png_file_path)
 
-channel=['C07V24TDK7T']
+channel=['C06HR7PBTHP']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -1274,7 +1274,7 @@ for i  in channel:
 #     html_file_path = 'tnc.html'
 #     png_file_path = 'tnc.png'
 #     html_to_png(html_file_path, png_file_path)
-# channel=['C07V24TDK7T']
+# channel=['C06HR7PBTHP']
 # for i  in channel:
 #     image_path = png_file_path
 #     channel=i
@@ -1423,7 +1423,7 @@ for i  in channel:
 #     html_to_png(html_file_path, png_file_path)
 
 
-# channel=['C07V24TDK7T']
+# channel=['C06HR7PBTHP']
 # for i  in channel:
 #     image_path = png_file_path
 #     channel=i
@@ -1553,7 +1553,7 @@ if __name__ == "__main__":
     png_file_path = 'ew.png'
     html_to_png(html_file_path, png_file_path)
 
-channel=['C07V24TDK7T']
+channel=['C06HR7PBTHP']
 for i  in channel:
     image_path = png_file_path
     channel=i
@@ -1680,7 +1680,7 @@ for i  in channel:
 #     html_to_png(html_file_path, png_file_path)
 
 
-# channel=['C07V24TDK7T']
+# channel=['C06HR7PBTHP']
 # for i  in channel:
 #     image_path = png_file_path
 #     channel=i
@@ -1810,7 +1810,7 @@ for i  in channel:
 #     html_to_png(html_file_path, png_file_path)
 
 
-# channel=['C07V24TDK7T']
+# channel=['C06HR7PBTHP']
 # for i  in channel:
 #     image_path = png_file_path
 #     channel=i
@@ -1943,7 +1943,7 @@ for i  in channel:
 #     html_to_png(html_file_path, png_file_path)
 
 
-# channel=['C07V24TDK7T']
+# channel=['C06HR7PBTHP']
 # for i  in channel:
 #     image_path = png_file_path
 #     channel=i
