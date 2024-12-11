@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            width: fit-content;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            align-content: center;
+        }
+
+        table, th, td {
+            border: 1px solid rgb(5, 9, 30);
+            border-collapse: collapse;
+            text-align: center;
+            text-indent: 5px;
+        }
+
+        td {
+            max-height: fit-content;
+            max-width: fit-content;
+        }
+
+        #firstdiv {
+            border-top: 2px solid rgb(76, 104, 65);
+            border-left: 2px solid rgb(76, 104, 65);
+            border-right: 2px solid rgb(76, 104, 65);
+            background-color: rgb(50, 91, 168);
+            background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+            padding-bottom: 2px;
+            color: white;
+        }
+
+        h3 {
+            font-size: 35px;
+            margin-top: 10px;
+        }
+
+        h4 {
+            background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+            text-align: left;
+            padding-left: 10px;
+            color: #ffffff;
+            background-color: rgb(5, 9, 30);
+            border: 2px solid rgb(5, 9, 30);
+        }
+
+        th {
+            background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body style="display: inline-flexbox; align-content: center;">
+    <div id="firstdiv" style="text-align: center; background-color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: auto;">
+        <h3> Pending Delivery Confirmation</h3>
+    </div>
+    <div class="city" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: inline-flexbox; align-content: center;">
+        <h4>Pending DC Cases Dec:</h4>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>City</th>
+      <th>Disbursal</th>
+      <th>16+</th>
+      <th>11-15</th>
+      <th>7-10</th>
+      <th>1-6</th>
+      <th>Total DC Pending</th>
+      <th>% Total DC Pending</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <td>Ahmedabad</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>6</td>
+      <td>60.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Bangalore</td>
+      <td>22</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>9</td>
+      <td>12</td>
+      <td>54.55%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Chandigarh</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>66.67%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Delhi-NCR</td>
+      <td>38</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>18</td>
+      <td>24</td>
+      <td>63.16%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Jaipur</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>5</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Mumbai</td>
+      <td>21</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>8</td>
+      <td>9</td>
+      <td>42.86%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Nashik</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>50.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Pune</td>
+      <td>9</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>44.44%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Kota</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0,00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Mysore</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Ludhiana</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0,00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Lucknow</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0,00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Agra</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0,00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Indore</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Surat</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Other</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Total</td>
+      <td>123</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13</td>
+      <td>53</td>
+      <td>66</td>
+      <td>53.66%</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+   </div>
+    <div class="city" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: inline-flexbox; align-content: center;">
+        <h4>Pending DC Cases Nov:</h4>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>City</th>
+      <th>Disbursal</th>
+      <th>16+</th>
+      <th>11-15</th>
+      <th>7-10</th>
+      <th>1-6</th>
+      <th>Total DC Pending</th>
+      <th>% Total DC Pending</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <td>Ahmedabad</td>
+      <td>35</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Bangalore</td>
+      <td>111</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1.80%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Chandigarh</td>
+      <td>16</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Delhi-NCR</td>
+      <td>138</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1.45%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Jaipur</td>
+      <td>30</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Mumbai</td>
+      <td>88</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Nashik</td>
+      <td>27</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Pune</td>
+      <td>56</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Kota</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Mysore</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Ludhiana</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0,00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Lucknow</td>
+      <td>9</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Agra</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0,00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Indore</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Surat</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0,00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Other</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Total</td>
+      <td>527</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0.76%</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            width: fit-content;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            align-content: center;
+        }
+
+        table, th, td {
+            border: 1px solid rgb(5, 9, 30);
+            border-collapse: collapse;
+            text-align: center;
+            text-indent: 5px;
+        }
+
+        td {
+            max-height: fit-content;
+            max-width: fit-content;
+        }
+
+        #firstdiv {
+            border-top: 2px solid rgb(76, 104, 65);
+            border-left: 2px solid rgb(76, 104, 65);
+            border-right: 2px solid rgb(76, 104, 65);
+            background-color: rgb(50, 91, 168);
+            background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+            padding-bottom: 2px;
+            color: white;
+        }
+
+        h3 {
+            font-size: 35px;
+            margin-top: 10px;
+        }
+
+        h4 {
+            background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+            text-align: left;
+            padding-left: 10px;
+            color: #ffffff;
+            background-color: rgb(5, 9, 30);
+            border: 2px solid rgb(5, 9, 30);
+        }
+
+        th {
+            background-image: linear-gradient(rgb(44, 60, 148), rgb(75, 17, 54));
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body style="display: inline-flexbox; align-content: center;">
+    <div id="firstdiv" style="text-align: center; background-color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: auto;">
+        <h3>C2B Channel Wise Report</h3>
+    </div>
+    <div class="city" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: inline-flexbox; align-content: center;">
+        <h4>C2B Channel Wise Report:</h4>
+        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>City</th>
+      <th>Lead</th>
+      <th>Login</th>
+      <th>Approval</th>
+      <th>Total Disb</th>
+      <th>Pmax Disb</th>
+      <th>Without Pmax Disb</th>
+      <th>Lead2Login</th>
+      <th>Login2Approval</th>
+      <th>A2D w/o Pmax</th>
+      <th>Approval2Disb</th>
+      <th>Approval</th>
+      <th>Total Disb</th>
+      <th>ALP</th>
+      <th>DS ROI</th>
+      <th>Final ROI</th>
+      <th>PF</th>
+      <th>CHM</th>
+      <th>MI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <td>NDL</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>RON</td>
+      <td>25</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>12.00%</td>
+      <td>33.33%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>South</td>
+      <td>10</td>
+      <td>4</td>
+      <td>3</td>
+      <td>7</td>
+      <td>2</td>
+      <td>5</td>
+      <td>40.00%</td>
+      <td>75.00%</td>
+      <td>166.67%</td>
+      <td>233.33%</td>
+      <td>3</td>
+      <td>0</td>
+      <td>3.35</td>
+      <td>16.57%</td>
+      <td>15.81%</td>
+      <td>0.00%</td>
+      <td>84.00%</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>West</td>
+      <td>50</td>
+      <td>13</td>
+      <td>9</td>
+      <td>8</td>
+      <td>3</td>
+      <td>5</td>
+      <td>26.00%</td>
+      <td>69.23%</td>
+      <td>55.56%</td>
+      <td>88.89%</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4.75</td>
+      <td>15.77%</td>
+      <td>14.88%</td>
+      <td>0.00%</td>
+      <td>71.99%</td>
+      <td>12.50%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Franchise</td>
+      <td>16</td>
+      <td>9</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>56.25%</td>
+      <td>44.44%</td>
+      <td>25.00%</td>
+      <td>25.00%</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4.56</td>
+      <td>18.25%</td>
+      <td>17.25%</td>
+      <td>0.00%</td>
+      <td>80.00%</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>FOS</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+      <td>0.00%</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Total</td>
+      <td>103</td>
+      <td>31</td>
+      <td>18</td>
+      <td>16</td>
+      <td>5</td>
+      <td>11</td>
+      <td>30.10%</td>
+      <td>58.06%</td>
+      <td>61.11%</td>
+      <td>88.89%</td>
+      <td>4</td>
+      <td>2</td>
+      <td>2.37</td>
+      <td>16.45%</td>
+      <td>15.54%</td>
+      <td>0.00%</td>
+      <td>77.50%</td>
+      <td>5.26%</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+
+</body>
+</html>
